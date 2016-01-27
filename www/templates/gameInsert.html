@@ -1,0 +1,16 @@
+<ion-view view-title="Playlists">
+  <ion-content>
+  	<label class="item item-input">
+  		<span class="input-label">Date</span>
+  		<input type="date">
+	   </label>
+    <ion-list show-reorder="shouldShowReorder" can-swipe="listCanSwipe" show-delete="shouldShowDelete">
+      <ion-item ng-repeat="player in players">
+  		  <h2>{{$index + 1}} - {{player.name}}</h2>
+
+  		  <ion-delete-button class="ion-minus-circled" ng-click="players.splice($index, 1)" />
+        <ion-reorder-button class="ion-navicon" on-reorder="moveItem(player, $fromIndex, $toIndex)" />
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

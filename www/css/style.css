@@ -1,0 +1,10 @@
+/* Empty. Add your own CSS if you like */
+
+.points {
+	text-align: right;
+}
+
+.player {
+	float: left;
+	text-align: left;
+}

@@ -1,0 +1,264 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"mun",
+				"municipio"
+			],
+			[
+				"muni",
+				"municipioDataService"
+			],
+			[
+				"func",
+				"function"
+			],
+			[
+				"ng-cl",
+				"ng-click	AngularJS"
+			],
+			[
+				"Torne",
+				"torneios"
+			],
+			[
+				"dt",
+				"DTOptionsBuilder"
+			],
+			[
+				"plaer",
+				"Player"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "Packages/Ruby/Ruby.sublime-build",
+	"command_palette":
+	{
+		"height": 81.0,
+		"selected_items":
+		[
+			[
+				"installpa",
+				"Package Control: Install Package"
+			],
+			[
+				"pack",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 400.0
+	},
+	"console":
+	{
+		"height": 0.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/Projetos/Ionic/HelloWorld/HelloWorld/package.json",
+		"/C/Projetos/Ionic/HelloWorld/HelloWorld/ionic.project",
+		"/C/Projetos/Ionic/HelloWorld/HelloWorld/platforms/android/assets/www/lib/ionic/js/angular/angular.js",
+		"/C/Projetos/Ionic/HelloWorld/HelloWorld/platforms/android/assets/www/lib/ionic/js/ionic.bundle.js",
+		"/C/Projetos/Ionic/HelloWorld/HelloWorld/www/js/services/player.service.js",
+		"/C/Projetos/Ionic/HelloWorld/HelloWorld/www/templates/menu.html",
+		"/C/Projetos/Ionic/HelloWorld/HelloWorld/www/js/app.js",
+		"/C/Projetos/Ionic/HelloWorld/HelloWorld/www/templates/gameInsert.html",
+		"/C/Projetos/Ionic/HelloWorld/HelloWorld/www/templates/players.html",
+		"/C/Projetos/Ionic/HelloWorld/HelloWorld/www/js/controllers.js",
+		"/C/Projetos/Ionic/HelloWorld/HelloWorld/www/index.html",
+		"/C/Projetos/Ionic/HelloWorld/HelloWorld/www/templates/ranking.html",
+		"/C/Projetos/Ionic/HelloWorld/HelloWorld/www/templates/playlists.html",
+		"/C/Projetos/Ionic/HelloWorld/HelloWorld/www/templates/player.html",
+		"/C/Projetos/Ionic/HelloWorld/HelloWorld/www/css/style.css",
+		"/C/Projetos/Ionic/HelloWorld/HelloWorld/www/templates/search.html",
+		"/C/Projetos/Ionic/HelloWorld/HelloWorld/www/templates/teste.html",
+		"/C/Projetos/INSPINA/Angular_Seed_Project/js/app.js",
+		"/C/Projetos/INSPINA/Angular_Seed_Project/index.html",
+		"/C/Projetos/INSPINA/Angular_Seed_Project/js/controllers/municipioEditaController.js",
+		"/C/Projetos/INSPINA/Angular_Seed_Project/js/services/toastr.service.js",
+		"/C/Projetos/INSPINA/Angular_Seed_Project/views/usuarios/lista.html",
+		"/C/Projetos/INSPINA/Angular_Seed_Project/views/municipios/edita.html",
+		"/C/Projetos/INSPINA/Angular_Seed_Project/js/config.js",
+		"/C/Projetos/INSPINA/Angular_Seed_Project/js/controllers/municipioController.js",
+		"/C/Projetos/INSPINA/Angular_Seed_Project/views/municipios/lista.html",
+		"/C/Projetos/INSPINA/Angular_Seed_Project/js/services/municipio.service.js",
+		"/C/Projetos/INSPINA/Angular_Seed_Project/views/common/navigation.html",
+		"/C/Projetos/INSPINA/Angular_Seed_Project/js/controllers/userEditaController.js",
+		"/C/Projetos/INSPINA/Angular_Seed_Project/js/controllers/userController.js",
+		"/C/Projetos/INSPINA/Angular_Seed_Project/js/services/user.service.js",
+		"/C/Projetos/INSPINA/Angular_Seed_Project/views/usuarios/edita.html",
+		"/C/Projetos/INSPINA/Angular_Seed_Project/views/torneio/edita.html",
+		"/C/Projetos/INSPINA/Angular_Seed_Project/js/controllers/torneioEditaController.js",
+		"/C/Projetos/INSPINA/Angular_Seed_Project/js/controllers/torneioController.js",
+		"/C/Projetos/INSPINA/Angular_Seed_Project/views/torneio/lista.html",
+		"/C/Projetos/INSPINA/Angular_Seed_Project/views/torneio/novo.html",
+		"/C/Projetos/INSPINA/Angular_Seed_Project/js/controllers/torneioController",
+		"/C/Projetos/INSPINA/Angular_Seed_Project/views/main.html",
+		"/C/Users/bruno-henn/Downloads/INSPINA/Angular_Seed_Project/js/app.js",
+		"/C/Users/bruno-henn/Downloads/INSPINA/Angular_Seed_Project/views/main.html",
+		"/C/Users/bruno-henn/Downloads/INSPINA/Angular_Seed_Project/index.html",
+		"/C/Users/bruno-henn/Downloads/INSPINA/Angular_Seed_Project/js/controllers/userController.js",
+		"/C/Users/bruno-henn/Downloads/INSPINA/Angular_Seed_Project/js/services/user.service.js",
+		"/C/Users/bruno-henn/Downloads/INSPINA/Angular_Seed_Project/js/plugins/oclazyload/examples/complexExample/partials/modal.html",
+		"/C/Projetos/TesteAngular/TesteAngular/Index.html",
+		"/C/Projetos/TesteAngular/TesteAngular/scripts/services/municipio.service.js",
+		"/C/Projetos/TesteAngular/TesteAngular/scripts/controllers/municipioController.js",
+		"/C/Users/bruno-henn/myapp/app/controllers/players_controller.rb",
+		"/C/Users/bruno-henn/myapp/app/views/players/edit.html.erb",
+		"/C/Users/bruno-henn/myapp/Gemfile",
+		"/C/Users/bruno-henn/myapp/app/views/pages/index.html.erb",
+		"/C/Users/bruno-henn/myapp/app/views/layouts/application.html.erb",
+		"/C/Users/bruno-henn/myapp/app/controllers/pages_controller.rb"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 90.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"Ionic App",
+			"Hello World",
+			"Hello World -",
+			"hello",
+			"hello world",
+			"animate",
+			"atr",
+			"datatablesctr",
+			"datatablesctrl",
+			"dataTables",
+			"dataTables-example",
+			"inspina",
+			"nomod"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"contro",
+				"www/js/controllers.js"
+			],
+			[
+				"service",
+				"js/services/municipio.service.js"
+			],
+			[
+				"edita",
+				"views/municipios/edita.html"
+			],
+			[
+				"editacontr",
+				"js/controllers/municipioEditaController.js"
+			],
+			[
+				"municipiocon",
+				"js/controllers/municipioController.js"
+			],
+			[
+				"controller",
+				"js/controllers/userController.js"
+			],
+			[
+				"nomod",
+				"js/plugins/oclazyload/examples/complexExample/partials/modal.html"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 298.0,
+	"status_bar_visible": true
+}
