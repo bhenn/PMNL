@@ -1,0 +1,15 @@
+<ion-view view-title="Rodadas">
+  <ion-content>
+	<ion-refresher pulling-text="Pull to refresh" on-refresh="doRefresh()">
+  	</ion-refresher>
+		<div ng-repeat="game in games">
+		  	<div class="card" >
+		  		<div class="item item-text-wrap">
+				  	<h2> {{game.description}} </h2>
+				  	<h3> {{game.date}} </h3>
+				  	<p> Vencedor : {{game.winner}} </p>
+				</div>
+			</div>
+		</div>
+  </ion-content>
+</ion-view>

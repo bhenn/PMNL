@@ -68,6 +68,11 @@
 	},
 	"file_history":
 	[
+		"/C/Projetos/Ionic/PMNL/www/templates/players.html",
+		"/C/Projetos/Ionic/PMNL/www/templates/menu.html",
+		"/C/Projetos/Ionic/PMNL/www/js/app.js",
+		"/C/Projetos/Ionic/PMNL/www/js/controllers.js",
+		"/C/Projetos/Ionic/PMNL/www/templates/games.html",
 		"/C/Projetos/Ionic/HelloWorld/HelloWorld/package.json",
 		"/C/Projetos/Ionic/HelloWorld/HelloWorld/ionic.project",
 		"/C/Projetos/Ionic/HelloWorld/HelloWorld/platforms/android/assets/www/lib/ionic/js/angular/angular.js",
@@ -140,6 +145,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"\"",
 			"Ionic App",
 			"Hello World",
 			"Hello World -",
@@ -160,6 +166,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"'"
 		],
 		"reverse": false,
 		"show_context": true,
@@ -208,7 +215,7 @@
 	"menu_visible": true,
 	"replace":
 	{
-		"height": 0.0
+		"height": 62.0
 	},
 	"save_all_on_build": true,
 	"select_file":

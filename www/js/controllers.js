@@ -87,10 +87,15 @@ angular.module('starter.controllers', [])
 
 .controller('GameCtrl',function($scope, playerDataService,$q) {
 
-  $scope.insert = "asd";
   $scope.shouldShowReorder = true;
   $scope.listCanSwipe = true;
   $scope.shouldShowDelete = true;
+
+  $scope.games = [
+    {description: 'Janeiro', date: '27/01/2016', winner: 'Bruno'},
+    {description: 'Fevereiro', date: '27/01/2016', winner: 'Andrei'},
+    {description: 'Março', date: '27/01/2016', winner: 'Michel'}
+  ];
 
 
   $scope.moveItem = function(player, fromIndex, toIndex) {
