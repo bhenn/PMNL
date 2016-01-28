@@ -35,6 +35,14 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "www/templates/gameInsert.html",
+			"settings":
+			{
+				"buffer_size": 705,
+				"line_ending": "Windows"
+			}
+		}
 	],
 	"build_system": "Packages/Ruby/Ruby.sublime-build",
 	"command_palette":
@@ -68,11 +76,12 @@
 	},
 	"file_history":
 	[
+		"/C/Projetos/Ionic/PMNL/www/js/controllers.js",
+		"/C/Projetos/Ionic/PMNL/www/js/app.js",
+		"/C/Projetos/Ionic/PMNL/www/templates/game.html",
+		"/C/Projetos/Ionic/PMNL/www/templates/games.html",
 		"/C/Projetos/Ionic/PMNL/www/templates/players.html",
 		"/C/Projetos/Ionic/PMNL/www/templates/menu.html",
-		"/C/Projetos/Ionic/PMNL/www/js/app.js",
-		"/C/Projetos/Ionic/PMNL/www/js/controllers.js",
-		"/C/Projetos/Ionic/PMNL/www/templates/games.html",
 		"/C/Projetos/Ionic/HelloWorld/HelloWorld/package.json",
 		"/C/Projetos/Ionic/HelloWorld/HelloWorld/ionic.project",
 		"/C/Projetos/Ionic/HelloWorld/HelloWorld/platforms/android/assets/www/lib/ionic/js/angular/angular.js",
@@ -134,7 +143,7 @@
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 90.0,
 		"where_history":
 		[
 			""
@@ -145,6 +154,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"button-footer",
+			"footer-bar-item",
 			"\"",
 			"Ionic App",
 			"Hello World",
@@ -177,8 +188,37 @@
 	"groups":
 	[
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "www/templates/gameInsert.html",
+					"settings":
+					{
+						"buffer_size": 705,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								630,
+								630
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/AngularJS/AngularJS.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
 			]
 		}
 	],

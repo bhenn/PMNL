@@ -92,9 +92,9 @@ angular.module('starter.controllers', [])
   $scope.shouldShowDelete = true;
 
   $scope.games = [
-    {description: 'Janeiro', date: '27/01/2016', winner: 'Bruno'},
-    {description: 'Fevereiro', date: '27/01/2016', winner: 'Andrei'},
-    {description: 'Março', date: '27/01/2016', winner: 'Michel'}
+    {description: 'Janeiro', date: '27/01/2016', winner: 'Bruno', id:'1'},
+    {description: 'Fevereiro', date: '27/01/2016', winner: 'Andrei', id: '2'},
+    {description: 'Março', date: '27/01/2016', winner: 'Michel', id: '3'}
   ];
 
 

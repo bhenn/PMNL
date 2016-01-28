@@ -4,11 +4,11 @@
   	</ion-refresher>
 		<div ng-repeat="game in games">
 		  	<div class="card" >
-		  		<div class="item item-text-wrap">
+		  		<a class="item item-text-wrap" href="#/app/games/{{game.id}}">
 				  	<h2> {{game.description}} </h2>
 				  	<h3> {{game.date}} </h3>
 				  	<p> Vencedor : {{game.winner}} </p>
-				</div>
+				</a>
 			</div>
 		</div>
   </ion-content>
