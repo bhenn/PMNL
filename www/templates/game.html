@@ -8,10 +8,10 @@
     </div>
     <div class="card">
     	<ion-list>
-    		<ion-item>1 - Bruno</ion-item>
-    		<ion-item>2 - Andrei</ion-item>
-    		<ion-item>3 - Michel</ion-item>
-    		<ion-item>4 - Cesar</ion-item>
+    		<ion-item ng-repeat='player in playersResult'>
+                <div class="player"> {{$index + 1}} - {{player.name}}</div>
+                <div class="points">{{player.points}}</div>
+            </ion-item>
     	</ion-list>
     </div>
   </ion-content>

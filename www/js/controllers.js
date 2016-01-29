@@ -85,7 +85,7 @@ angular.module('starter.controllers', [])
 })
 
 
-.controller('GameCtrl',function($scope, playerDataService,$q) {
+.controller('GameCtrl',function($scope, playerDataService,$q,$ionicLoading,$timeout) {
 
   $scope.shouldShowReorder = true;
   $scope.listCanSwipe = true;
@@ -97,6 +97,26 @@ angular.module('starter.controllers', [])
     {description: 'Março', date: '27/01/2016', winner: 'Michel', id: '3'}
   ];
 
+  $scope.playersResult = [
+    {name: 'Bruno', points: '17'},
+    {name: 'Michel', points: '14'},
+    {name: 'Cesar', points: '11'},
+    {name: 'Andrei', points: '8'},
+    {name: 'Dudinha', points: '5'}
+  ];
+
+  $scope.show = function(){
+    $ionicLoading.show({
+      template: '<p>Loading...</p><ion-spinner></ion-spinner>',
+      delay: 100
+    });
+    console.log('Show');
+  };
+
+  $scope.hide = function(){
+    $ionicLoading.hide();
+    console.log('Hide');
+  };
 
   $scope.moveItem = function(player, fromIndex, toIndex) {
      $scope.players.splice(fromIndex, 1);
@@ -104,7 +124,9 @@ angular.module('starter.controllers', [])
   };
 
   function init() {
+    $scope.show();
     getPlayers();
+    
   }
 
   function getPlayers() {
@@ -113,6 +135,7 @@ angular.module('starter.controllers', [])
     playerDataService.lista()
     .then(function (result) {
         $scope.players = result.data;
+        $scope.hide();
     });
 
     return deferred.promise;
