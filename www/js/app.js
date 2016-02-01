@@ -67,7 +67,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       views: {
         'menuContent': {
           templateUrl: 'templates/games.html',
-          controller: 'GameCtrl'
+          controller: 'GamesCtrl'
         }
       }
     })
@@ -87,7 +87,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       views: {
         'menuContent': {
           templateUrl: 'templates/gameInsert.html',
-          controller: 'GameCtrl'
+          controller: 'GameInsertCtrl'
         }
       }
     })

@@ -84,50 +84,67 @@ angular.module('starter.controllers', [])
 
 })
 
-
-.controller('GameCtrl',function($scope, playerDataService,$q,$ionicLoading,$timeout) {
-
-  $scope.shouldShowReorder = true;
-  $scope.listCanSwipe = true;
-  $scope.shouldShowDelete = true;
-
-  $scope.games = [
-    {description: 'Janeiro', date: '27/01/2016', winner: 'Bruno', id:'1'},
-    {description: 'Fevereiro', date: '27/01/2016', winner: 'Andrei', id: '2'},
-    {description: 'Março', date: '27/01/2016', winner: 'Michel', id: '3'}
-  ];
-
-  $scope.playersResult = [
-    {name: 'Bruno', points: '17'},
-    {name: 'Michel', points: '14'},
-    {name: 'Cesar', points: '11'},
-    {name: 'Andrei', points: '8'},
-    {name: 'Dudinha', points: '5'}
-  ];
+.controller('GamesCtrl',function($scope, gamesDataService,$q,$ionicLoading) {
 
   $scope.show = function(){
     $ionicLoading.show({
       template: '<p>Loading...</p><ion-spinner></ion-spinner>',
       delay: 100
     });
-    console.log('Show');
   };
 
   $scope.hide = function(){
     $ionicLoading.hide();
-    console.log('Hide');
+  };
+
+  $scope.doRefresh = function(){
+    getGames();
+    $scope.$broadcast('scroll.refreshComplete');
+  }
+
+
+  function init() {
+    $scope.show();
+    getGames();
+  }
+
+  function getGames(){
+   var deferred = $q.defer();
+
+    gamesDataService.lista()
+    .then(function (result) {
+        $scope.games = result.data;
+        $scope.hide();
+    });
+
+    return deferred.promise; 
+  }
+
+  init();
+})
+
+.controller('GameInsertCtrl',function($scope, gamesDataService,$q,$ionicLoading,playerDataService) {
+  $scope.shouldShowReorder = true;
+  $scope.listCanSwipe = true;
+  $scope.shouldShowDelete = true;
+
+  $scope.show = function(){
+    $ionicLoading.show({
+      template: '<p>Loading...</p><ion-spinner></ion-spinner>',
+      delay: 100
+    });
+  };
+
+  $scope.hide = function(){
+    $ionicLoading.hide();
   };
 
   $scope.moveItem = function(player, fromIndex, toIndex) {
      $scope.players.splice(fromIndex, 1);
      $scope.players.splice(toIndex, 0, player);
+     console.log($scope.players);
+     console.log(player);
   };
-
-  function init() {
-    $scope.show();
-    getPlayers();
-    
-  }
 
   function getPlayers() {
     var deferred = $q.defer();
@@ -139,6 +156,67 @@ angular.module('starter.controllers', [])
     });
 
     return deferred.promise;
+  }
+
+  $scope.insertGame = function(){
+   var deferred = $q.defer();
+
+    var gameResult = [];
+
+    for (var i = 0; i < $scope.players.length; i++) {
+     gameResult.push({playerid: $scope.players[i].id, order: i+1});
+    };
+
+    var game = {
+      description: 'Inclusao',
+      gamesresults: gameResult
+    };
+
+    gamesDataService.insert(game)
+    .then(function (result) {
+      alert('incluido');
+    });
+
+    return deferred.promise; 
+  }
+
+
+  function init() {
+    $scope.show();
+    getPlayers();
+  }
+
+  init();
+})
+
+.controller('GameCtrl',function($scope, playerDataService,$q,$ionicLoading,$timeout, gamesDataService,$stateParams) {
+
+  $scope.show = function(){
+    $ionicLoading.show({
+      template: '<p>Loading...</p><ion-spinner></ion-spinner>',
+      delay: 100
+    });
+  };
+
+  $scope.hide = function(){
+    $ionicLoading.hide();
+  };
+
+  function findGame(){
+     var deferred = $q.defer();
+
+    gamesDataService.getGame($stateParams.id)
+    .then(function (result) {
+        $scope.gameSelected = result.data;
+        $scope.hide();
+    });
+
+    return deferred.promise;
+  }
+
+  function init() {
+    findGame();
+    $scope.show();
   }
 
   init();

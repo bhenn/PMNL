@@ -2,15 +2,15 @@
   <ion-content>
     <div class="card">
     	<div class="item item-text-wrap">
-	    	<h2>Janeiro</h2>
-	    	<p>24/01/2015</p>
+	    	<h2>{{gameSelected.description}}</h2>
+	    	<p>{{gameSelected.date | date: "dd/MM/yyyy"}}</p>
     	</div>
     </div>
     <div class="card">
     	<ion-list>
-    		<ion-item ng-repeat='player in playersResult'>
-                <div class="player"> {{$index + 1}} - {{player.name}}</div>
-                <div class="points">{{player.points}}</div>
+    		<ion-item ng-repeat='gameResult in gameSelectedResult'>
+                <div class="player"> {{$index + 1}} - {{gameResult.player.name}}</div>
+                <div class="points">{{gameResult.points}}</div>
             </ion-item>
     	</ion-list>
     </div>

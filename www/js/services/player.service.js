@@ -2,7 +2,7 @@
     var injectParams = ['$http', '$q'];
 
     var playerDataService = function ($http, $q) {
-        var urlBase = 'http://localhost/pmnl/api/players';
+        var urlBase = 'http://localhost:64789/api/players';
         var factory = {};
 
         factory.lista = function () {
