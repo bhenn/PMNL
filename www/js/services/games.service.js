@@ -2,7 +2,7 @@
     var injectParams = ['$http', '$q'];
 
     var gamesDataService = function ($http, $q) {
-        var urlBase = 'http://pmnlapi.azurewebsites.net/api/games';
+        var urlBase = url + '/games';
         var factory = {};
 
         factory.lista = function () {

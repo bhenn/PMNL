@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"for",
+				"for	for (…) {…}"
+			],
+			[
+				"hi",
+				"hide"
+			],
+			[
 				"mun",
 				"municipio"
 			],
@@ -35,6 +43,55 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "www/templates/gameInsert.html",
+			"settings":
+			{
+				"buffer_size": 1011,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "www/js/controllers.js",
+			"settings":
+			{
+				"buffer_size": 5896,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "www/js/globals.js",
+			"settings":
+			{
+				"buffer_size": 91,
+				"line_ending": "Windows",
+				"name": "var url"
+			}
+		},
+		{
+			"file": "www/js/services/games.service.js",
+			"settings":
+			{
+				"buffer_size": 744,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "www/js/services/player.service.js",
+			"settings":
+			{
+				"buffer_size": 828,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "www/index.html",
+			"settings":
+			{
+				"buffer_size": 1227,
+				"line_ending": "Windows"
+			}
+		}
 	],
 	"build_system": "Packages/Ruby/Ruby.sublime-build",
 	"command_palette":
@@ -68,11 +125,14 @@
 	},
 	"file_history":
 	[
-		"/C/Projetos/PMNL/www/templates/gameInsert.html",
-		"/C/Projetos/Ionic/PMNL/www/js/controllers.js",
-		"/C/Projetos/Ionic/PMNL/www/js/app.js",
 		"/C/Projetos/Ionic/PMNL/www/templates/game.html",
+		"/C/Projetos/Ionic/PMNL/www/js/app.js",
+		"/C/Projetos/Ionic/PMNL/www/templates/gameInsert.html",
+		"/C/Projetos/Ionic/PMNL/www/js/controllers.js",
+		"/C/Projetos/Ionic/PMNL/www/js/services/player.service.js",
+		"/C/Projetos/Ionic/PMNL/www/js/services/games.service.js",
 		"/C/Projetos/Ionic/PMNL/www/templates/games.html",
+		"/C/Projetos/Ionic/PMNL/www/index.html",
 		"/C/Projetos/Ionic/PMNL/www/templates/players.html",
 		"/C/Projetos/Ionic/PMNL/www/templates/menu.html",
 		"/C/Projetos/Ionic/HelloWorld/HelloWorld/package.json",
@@ -147,6 +207,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"\">",
+			"playerDataService",
 			"button-footer",
 			"footer-bar-item",
 			"\"",
@@ -181,14 +243,182 @@
 	"groups":
 	[
 		{
+			"selected": 2,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "www/templates/gameInsert.html",
+					"settings":
+					{
+						"buffer_size": 1011,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								253,
+								253
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/AngularJS/AngularJS.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 15.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "www/js/controllers.js",
+					"settings":
+					{
+						"buffer_size": 5896,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5140,
+								5140
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "www/js/globals.js",
+					"settings":
+					{
+						"buffer_size": 91,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								86,
+								86
+							]
+						],
+						"settings":
+						{
+							"auto_name": "var url",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "www/js/services/games.service.js",
+					"settings":
+					{
+						"buffer_size": 744,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								143,
+								114
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "www/js/services/player.service.js",
+					"settings":
+					{
+						"buffer_size": 828,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								172,
+								172
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "www/index.html",
+					"settings":
+					{
+						"buffer_size": 1227,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								924,
+								924
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/AngularJS/AngularJS.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
 			]
 		}
 	],
 	"incremental_find":
 	{
-		"height": 0.0
+		"height": 34.0
 	},
 	"input":
 	{
@@ -228,12 +458,36 @@
 		"selected_items":
 		[
 			[
-				"contro",
+				"globa",
+				"www/js/globals.js"
+			],
+			[
+				"services",
+				"www/js/services/player.service.js"
+			],
+			[
+				"controller",
 				"www/js/controllers.js"
 			],
 			[
+				"gameinser",
+				"www/templates/gameInsert.html"
+			],
+			[
+				"app",
+				"www/js/app.js"
+			],
+			[
 				"service",
-				"js/services/municipio.service.js"
+				"www/js/services/games.service.js"
+			],
+			[
+				"game",
+				"www/templates/game.html"
+			],
+			[
+				"contro",
+				"www/js/controllers.js"
 			],
 			[
 				"edita",
@@ -246,10 +500,6 @@
 			[
 				"municipiocon",
 				"js/controllers/municipioController.js"
-			],
-			[
-				"controller",
-				"js/controllers/userController.js"
 			],
 			[
 				"nomod",

@@ -171,6 +171,7 @@ angular.module('starter.controllers', [])
   $scope.shouldShowReorder = true;
   $scope.listCanSwipe = true;
   $scope.shouldShowDelete = true;
+  $scope.game = {descricao: "", date: ""};
 
   $scope.show = function(){
     $ionicLoading.show({
@@ -186,8 +187,6 @@ angular.module('starter.controllers', [])
   $scope.moveItem = function(player, fromIndex, toIndex) {
      $scope.players.splice(fromIndex, 1);
      $scope.players.splice(toIndex, 0, player);
-     console.log($scope.players);
-     console.log(player);
   };
 
   function getPlayers() {
@@ -212,7 +211,8 @@ angular.module('starter.controllers', [])
     };
 
     var game = {
-      description: 'Inclusao',
+      description: $scope.game.descricao,
+      date: $scope.game.date,
       gamesresults: gameResult
     };
 

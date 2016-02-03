@@ -1,9 +1,15 @@
 <ion-view view-title="Playlists">
   <ion-content>
-  	<label class="item item-input">
-  		<span class="input-label">Date</span>
-  		<input type="date">
-	   </label>
+  <form>
+    <label class="item item-input item-floating-label">
+      <span class="input-label">Descrição</span>
+      <input ng-model="game.descricao" type="text" placeholder="Descrição">
+    </label>
+  	<label class="item item-input item-floating-label">
+  		<span class="input-label">Data</span>
+  		<input type="date" ng-model="game.date">
+	  </label>
+    <div class="col"></div>
     <ion-list show-reorder="shouldShowReorder" can-swipe="listCanSwipe" show-delete="shouldShowDelete">
       <ion-item ng-repeat="player in players">
   		  <h2>{{$index + 1}} - {{player.name}}</h2>
@@ -15,5 +21,6 @@
     <button class="button button-block button-positive" ng-click="insertGame()">
       Salvar
     </button>
+   </form>
   </ion-content>
 </ion-view>
