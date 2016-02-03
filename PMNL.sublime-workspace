@@ -4,14 +4,6 @@
 		"selected_items":
 		[
 			[
-				"for",
-				"for	for (…) {…}"
-			],
-			[
-				"hi",
-				"hide"
-			],
-			[
 				"mun",
 				"municipio"
 			],
@@ -76,14 +68,11 @@
 	},
 	"file_history":
 	[
-		"/C/Projetos/Ionic/PMNL/www/templates/game.html",
-		"/C/Projetos/Ionic/PMNL/www/js/app.js",
-		"/C/Projetos/Ionic/PMNL/www/templates/gameInsert.html",
+		"/C/Projetos/PMNL/www/templates/gameInsert.html",
 		"/C/Projetos/Ionic/PMNL/www/js/controllers.js",
-		"/C/Projetos/Ionic/PMNL/www/js/services/player.service.js",
-		"/C/Projetos/Ionic/PMNL/www/js/services/games.service.js",
+		"/C/Projetos/Ionic/PMNL/www/js/app.js",
+		"/C/Projetos/Ionic/PMNL/www/templates/game.html",
 		"/C/Projetos/Ionic/PMNL/www/templates/games.html",
-		"/C/Projetos/Ionic/PMNL/www/index.html",
 		"/C/Projetos/Ionic/PMNL/www/templates/players.html",
 		"/C/Projetos/Ionic/PMNL/www/templates/menu.html",
 		"/C/Projetos/Ionic/HelloWorld/HelloWorld/package.json",
@@ -158,7 +147,6 @@
 		"case_sensitive": false,
 		"find_history":
 		[
-			"playerDataService",
 			"button-footer",
 			"footer-bar-item",
 			"\"",
@@ -200,7 +188,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 34.0
+		"height": 0.0
 	},
 	"input":
 	{
@@ -240,20 +228,12 @@
 		"selected_items":
 		[
 			[
-				"app",
-				"www/js/app.js"
+				"contro",
+				"www/js/controllers.js"
 			],
 			[
 				"service",
-				"www/js/services/games.service.js"
-			],
-			[
-				"game",
-				"www/templates/game.html"
-			],
-			[
-				"contro",
-				"www/js/controllers.js"
+				"js/services/municipio.service.js"
 			],
 			[
 				"edita",

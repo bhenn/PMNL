@@ -1,5 +1,32 @@
 angular.module('starter.controllers', [])
 
+.controller('DashCtrl', function($scope) {
+  
+  var deploy = new Ionic.Deploy();
+  
+  // Update app code with new release from Ionic Deploy
+  $scope.doUpdate = function() {
+    deploy.update().then(function(res) {
+      console.log('Ionic Deploy: Update Success! ', res);
+    }, function(err) {
+      console.log('Ionic Deploy: Update error! ', err);
+    }, function(prog) {
+      console.log('Ionic Deploy: Progress... ', prog);
+    });
+  };
+
+  // Check Ionic Deploy for new code
+  $scope.checkForUpdates = function() {
+    console.log('Ionic Deploy: Checking for updates');
+    deploy.check().then(function(hasUpdate) {
+      console.log('Ionic Deploy: Update available: ' + hasUpdate);
+      $scope.hasUpdate = hasUpdate;
+    }, function(err) {
+      console.error('Ionic Deploy: Unable to check for updates', err);
+    });
+  }
+})
+
 .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
 
   // With the new view caching in Ionic, Controllers are only called
@@ -58,23 +85,40 @@ angular.module('starter.controllers', [])
 })
 
 
-.controller('PlayersCtrl',function($scope, playerDataService,$q) {
+.controller('PlayersCtrl',function($scope, playerDataService,$q, $ionicLoading) {
 
   $scope.doRefresh = function(){
     getPlayers();
     $scope.$broadcast('scroll.refreshComplete');
   }
 
+  $scope.show = function(){
+    $ionicLoading.show({
+      template: '<p>Loading...</p><ion-spinner></ion-spinner>',
+      delay: 100
+    });
+  };
+
+  $scope.hide = function(){
+    $ionicLoading.hide();
+  };
+
   function init() {
+    $scope.show();
     getPlayers();
   }
+
+
 
   function getPlayers() {
     var deferred = $q.defer();
 
-    playerDataService.lista()
-    .then(function (result) {
+    playerDataService.lista().then(function (result) {
         $scope.players = result.data;
+        $scope.hide();
+    }, function(err){
+        $scope.erro = "Erro -> " + err.statusText;
+        $scope.hide();
     });
 
     return deferred.promise;

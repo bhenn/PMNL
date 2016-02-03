@@ -1,13 +1,7 @@
 <ion-view view-title="Jogadores">
+
   <ion-content>
-<!--
-    <ion-list>
-       <ion-item ng-repeat="player in players" href="#/app/players/{{player.id}}"> 
-	      	{{player.name}}	
-      	</div>
-      </ion-item>
-    </ion-list>
--->
+  <div>{{erro}}</div>
 	<ion-refresher pulling-text="Pull to refresh" on-refresh="doRefresh()">
   	</ion-refresher>
 	<div ng-repeat="player in players">
@@ -21,3 +15,4 @@
 	<div>
   </ion-content>
 </ion-view>
+

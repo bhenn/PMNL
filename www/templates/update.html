@@ -1,0 +1,10 @@
+<ion-view view-title="Game">
+  <ion-content>
+    <button class="button button-primary button-block " ng-click="checkForUpdates()">
+  Check for updates
+</button>
+<button class="button button-stable button-block button-pulse" ng-if="hasUpdate" ng-click="doUpdate()">
+  download update
+</button>
+  </ion-content>
+</ion-view>
