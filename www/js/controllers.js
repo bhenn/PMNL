@@ -69,18 +69,44 @@ angular.module('starter.controllers', [])
 })
 
 
-.controller('RankingCtrl',function($scope) {
-  $scope.players = [
-  {name: 'Bruno', points: 45},
-  {name: 'Felipe', points: 42},
-  {name: 'Michel', points: 39},
-  {name: 'Ismael', points: 33},
-  ];
+.controller('RankingCtrl',function($scope,$ionicLoading,$q,playerDataService) {
+  
+  function init() {
+    $scope.show();
+    getPlayers();
+  }
 
   $scope.doRefresh = function(){
-    $scope.players.push({name: 'Paulo', points: 30});    
+    getPlayers();
     $scope.$broadcast('scroll.refreshComplete');
   }
+
+  $scope.show = function(){
+    $ionicLoading.show({
+      template: '<p>Loading...</p><ion-spinner></ion-spinner>',
+      delay: 100
+    });
+  };
+
+  $scope.hide = function(){
+    $ionicLoading.hide();
+  };
+
+  function getPlayers() {
+    var deferred = $q.defer();
+
+    playerDataService.lista().then(function (result) {
+        $scope.players = result.data;
+        $scope.hide();
+    }, function(err){
+        $scope.erro = "Erro -> " + err.statusText;
+        $scope.hide();
+    });
+
+    return deferred.promise;
+  }
+
+  init();
 
 })
 
@@ -167,7 +193,7 @@ angular.module('starter.controllers', [])
   init();
 })
 
-.controller('GameInsertCtrl',function($scope, gamesDataService,$q,$ionicLoading,playerDataService) {
+.controller('GameInsertCtrl',function($scope, gamesDataService,$q,$ionicLoading,playerDataService,$cordovaTouchID) {
   $scope.shouldShowReorder = true;
   $scope.listCanSwipe = true;
   $scope.shouldShowDelete = true;
@@ -224,10 +250,36 @@ angular.module('starter.controllers', [])
     return deferred.promise; 
   }
 
+  $scope.restart = function(){
+    $scope.game.descricao ="";
+    $scope.game.date ="";
+    init();
+  }
+
 
   function init() {
     $scope.show();
     getPlayers();
+  }
+
+  $scope.vibra = function (){
+    $cordovaTouchID.checkSupport().then(function() {
+        validaID();        
+      }, function (error) {
+        alert(error);
+      });    
+  }
+
+  function validaID(){
+    try{
+      $cordovaTouchID.authenticate("text").then(function() {
+        alert('deboas');
+      }, function (err) {
+        alert('Não deu' + err);  
+      });
+    }catch(err){
+      alert(err);      
+    }
   }
 
   init();

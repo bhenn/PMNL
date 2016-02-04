@@ -7,7 +7,7 @@
     </label>
   	<label class="item item-input item-floating-label">
   		<span class="input-label">Data</span>
-  		<input type="date" ng-model="game.date">
+  		<input type="date" ng-model="game.date" placeholder="Data">
 	  </label>
     <div class="col"></div>
     <ion-list show-reorder="shouldShowReorder" can-swipe="listCanSwipe" show-delete="shouldShowDelete">
@@ -18,8 +18,14 @@
         <ion-reorder-button class="ion-navicon" on-reorder="moveItem(player, $fromIndex, $toIndex)" />
       </ion-item>
     </ion-list>
-    <button class="button button-block button-positive" ng-click="insertGame()">
+    <button class="button button-block button-balanced" ng-click="insertGame()">
       Salvar
+    </button>
+    <button class="button button-block button-positive" ng-click="restart()">
+      Recomeçar
+    </button>
+    <button class="button button-block button-positive" ng-click="vibra()">
+      Vibra
     </button>
    </form>
   </ion-content>
