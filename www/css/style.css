@@ -8,3 +8,10 @@
 	float: left;
 	text-align: left;
 }
+
+.colocation {
+	float: left;
+	text-align: left;
+	font-weight: 700;
+	padding-right: 15px;
+}

@@ -4,6 +4,7 @@
   </ion-refresher>
 	<ion-list>
       <ion-item ng-repeat="player in players">
+      <div class="colocation"> {{$index + 1}}</div>
        <div class="player"> {{player.name}}</div>
       <div class="points">{{player.points}}</div>
       </ion-item>
