@@ -2,14 +2,16 @@ angular.module('starter.controllers')
 
 .controller('GameInsertCtrl',GameInsertCtrl);
 
-GameInsertCtrl.$inject = ['$scope', 'gamesDataService','$q','$ionicLoading','playerDataService','$cordovaTouchID','$ionicModal'];
+GameInsertCtrl.$inject = ['$scope', 'gamesDataService','$q','$ionicLoading','playerDataService','$cordovaTouchID','$ionicModal','$filter'];
 
-function GameInsertCtrl($scope,gamesDataService,$q,$ionicLoading,playerDataService,$cordovaTouchID,$ionicModal){
+function GameInsertCtrl($scope,gamesDataService,$q,$ionicLoading,playerDataService,$cordovaTouchID,$ionicModal,$filter){
 
   $scope.shouldShowReorder = true;
   $scope.listCanSwipe = true;
   $scope.shouldShowDelete = true;
   $scope.game = {descricao: "", date: ""};
+
+  var playerRankingOriginal = [];
 
   $ionicModal.fromTemplateUrl('templates/ranking-preview.html', {
     scope: $scope,
@@ -19,7 +21,7 @@ function GameInsertCtrl($scope,gamesDataService,$q,$ionicLoading,playerDataServi
   })
 
   $scope.openModal = function(){
-    $scope.playersPreview = $scope.players;
+    generatePreview();
     $scope.modal.show();
   }
   $scope.closeModal = function(){
@@ -48,6 +50,7 @@ function GameInsertCtrl($scope,gamesDataService,$q,$ionicLoading,playerDataServi
     playerDataService.lista()
     .then(function (result) {
         $scope.players = result.data;
+        playerRankingOriginal = angular.copy(result.data);
         $scope.hide();
     });
 
@@ -83,31 +86,43 @@ function GameInsertCtrl($scope,gamesDataService,$q,$ionicLoading,playerDataServi
     init();
   }
 
-
   function init() {
     $scope.show();
     getPlayers();
   }
 
-  $scope.vibra = function (){
-    $cordovaTouchID.checkSupport().then(function() {
-        validaID();        
-      }, function (error) {
-        alert(error);
-      });    
+  function generatePreview(){
+    $scope.playersPreview = angular.copy(playerRankingOriginal);
+
+    for (var i = 0; i < $scope.players.length; i++) {
+      var playerFound = $filter('filter')($scope.playersPreview ,{id : $scope.players[i].id});
+      playerFound[0].points += getPoints($scope.players.length, i);
+    };
   }
 
-  function validaID(){
-    try{
-      $cordovaTouchID.authenticate("text").then(function() {
-        alert('deboas');
-      }, function (err) {
-        alert('Não deu' + err);  
-      });
-    }catch(err){
-      alert(err);      
-    }
+  function getPoints(players,position){
+    return pontuacao[players - 5][position];
   }
+
+  // $scope.vibra = function (){
+  //   $cordovaTouchID.checkSupport().then(function() {
+  //       validaID();        
+  //     }, function (error) {
+  //       alert(error);
+  //     });    
+  // }
+
+  // function validaID(){
+  //   try{
+  //     $cordovaTouchID.authenticate("text").then(function() {
+  //       alert('deboas');
+  //     }, function (err) {
+  //       alert('Não deu' + err);  
+  //     });
+  //   }catch(err){
+  //     alert(err);      
+  //   }
+  // }
 
   init();
   
