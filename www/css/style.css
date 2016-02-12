@@ -15,3 +15,9 @@
 	font-weight: 700;
 	padding-right: 15px;
 }
+.has-errors {
+    border-bottom: 3px solid #cc2511;
+}
+.no-errors {
+    border-bottom: 3px solid #3d8b3d;
+}

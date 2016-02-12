@@ -2,9 +2,9 @@ angular.module('starter.controllers')
 
 .controller('GameInsertCtrl',GameInsertCtrl);
 
-GameInsertCtrl.$inject = ['$scope', 'gamesDataService','$q','$ionicLoading','playerDataService','$cordovaTouchID','$ionicModal','$filter'];
+GameInsertCtrl.$inject = ['$scope', 'gamesDataService','$q','$ionicLoading','playerDataService','$cordovaTouchID','$ionicModal','$filter','$ionicPopup'];
 
-function GameInsertCtrl($scope,gamesDataService,$q,$ionicLoading,playerDataService,$cordovaTouchID,$ionicModal,$filter){
+function GameInsertCtrl($scope,gamesDataService,$q,$ionicLoading,playerDataService,$cordovaTouchID,$ionicModal,$filter,$ionicPopup){
 
   $scope.shouldShowReorder = true;
   $scope.listCanSwipe = true;
@@ -20,11 +20,11 @@ function GameInsertCtrl($scope,gamesDataService,$q,$ionicLoading,playerDataServi
     $scope.modal = modal
   })
 
-  $scope.openModal = function(){
+  $scope.openPreview = function(){
     generatePreview();
     $scope.modal.show();
   }
-  $scope.closeModal = function(){
+  $scope.closePreview = function(){
     $scope.modal.hide();
   }
 
@@ -37,6 +37,17 @@ function GameInsertCtrl($scope,gamesDataService,$q,$ionicLoading,playerDataServi
 
   $scope.hide = function(){
     $ionicLoading.hide();
+  };
+
+  $scope.removeItem = function(index){
+    if ($scope.players.length == 5){
+      $ionicPopup.alert({
+        title: 'Erro',
+        template: 'O mínimo de jogadores é 5'
+      });
+    }else{
+      $scope.players.splice(index, 1)  
+    }
   };
 
   $scope.moveItem = function(player, fromIndex, toIndex) {
@@ -58,8 +69,8 @@ function GameInsertCtrl($scope,gamesDataService,$q,$ionicLoading,playerDataServi
   }
 
   $scope.insertGame = function(){
-   var deferred = $q.defer();
-
+    $scope.show();
+    var deferred = $q.defer();
     var gameResult = [];
 
     for (var i = 0; i < $scope.players.length; i++) {
@@ -69,12 +80,32 @@ function GameInsertCtrl($scope,gamesDataService,$q,$ionicLoading,playerDataServi
     var game = {
       description: $scope.game.descricao,
       date: $scope.game.date,
-      gamesresults: gameResult
+    gamesresults: gameResult
     };
 
     gamesDataService.insert(game)
     .then(function (result) {
-      alert('incluido');
+
+      $ionicPopup.alert({
+        title: 'OK',
+        template: 'Rodada Incluída'
+      })
+      .then(function(){
+        $scope.restart();
+      });
+
+    })
+    .catch(function(data){
+      $ionicPopup.alert({
+        title: 'Erro',
+        template: data.data.message
+      })
+      .then(function(){
+        $scope.restart();
+      });
+    })
+    .finally(function(){
+      $scope.hide();  
     });
 
     return deferred.promise; 

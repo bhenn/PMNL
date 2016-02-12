@@ -1,35 +1,32 @@
 <ion-view view-title="Nova Rodada">
   <ion-content>
-  <form>
-    <label class="item item-input item-floating-label">
+  <form name="formInsertGame" ng-submit="insertGame()" novalidate>
+    <label class="item item-input" ng-class="{ 'has-errors' : formInsertGame.gameDescricao.$invalid && formInsertGame.gameDescricao.$dirty, 'no-errors' : formInsertGame.gameDescricao.$valid && formInsertGame.gameDescricao.$dirty}" >
       <span class="input-label">Descrição</span>
-      <input ng-model="game.descricao" type="text" placeholder="Descrição">
+      <input name="gameDescricao" ng-model="game.descricao" type="text" placeholder="Descrição" required>
     </label>
-  	<label class="item item-input item-floating-label">
+  	<label class="item item-input" ng-class="{ 'has-errors' : formInsertGame.gameDate.$invalid && formInsertGame.gameDate.$dirty, 'no-errors' : formInsertGame.gameDate.$valid && formInsertGame.gameDate.$dirty}">
   		<span class="input-label">Data</span>
-  		<input type="date" ng-model="game.date" placeholder="Data">
+  		<input name="gameDate" type="date" ng-model="game.date" placeholder="Data" required>
 	  </label>
     <div class="col"></div>
     <ion-list show-reorder="shouldShowReorder" can-swipe="listCanSwipe" show-delete="shouldShowDelete">
       <ion-item ng-repeat="player in players">
   		  <h2>{{$index + 1}} - {{player.name}}</h2>
 
-  		  <ion-delete-button class="ion-minus-circled" ng-click="players.splice($index, 1)" />
+  		  <ion-delete-button class="ion-minus-circled" ng-click="removeItem($index)" />
         <ion-reorder-button class="ion-navicon" on-reorder="moveItem(player, $fromIndex, $toIndex)" />
       </ion-item>
     </ion-list>
-    <button class="button button-block button-balanced" ng-click="insertGame()">
+    <button class="button button-block button-balanced" ng-disabled="formInsertGame.$invalid">
       Salvar
     </button>
+   </form>
     <button class="button button-block button-positive" ng-click="restart()">
       Recomeçar
     </button>
-    <button class="button button-block button-positive" ng-click="vibra()">
-      Vibra
-    </button>
-    <button class="button button-block button-positive" ng-click="openModal()">
+    <button class="button button-block button-positive" ng-click="openPreview()" >
       Preview
     </button>
-   </form>
   </ion-content>
 </ion-view>
