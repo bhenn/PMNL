@@ -2,9 +2,9 @@ angular.module('starter.controllers')
 
 .controller('AppCtrl',AppCtrl);
 
-AppCtrl.$inject = ['$scope', '$ionicModal', '$timeout'];
+AppCtrl.$inject = ['$scope', '$ionicModal', '$timeout','$cordovaOauth','$ionicPopup','$cordovaInAppBrowser'];
 
-function AppCtrl($scope,$ionicModal,$timeout){
+function AppCtrl($scope,$ionicModal,$timeout,$cordovaOauth,$ionicPopup,$cordovaInAppBrowser){
 
 
   // With the new view caching in Ionic, Controllers are only called
@@ -44,5 +44,42 @@ function AppCtrl($scope,$ionicModal,$timeout){
       $scope.closeLogin();
     }, 1000);
   };
+
+  $scope.facebook = function(){
+
+    try {
+      $cordovaOauth.facebook("1644507495810496", ["email"]).then(function(result) {
+        $ionicPopup.alert({
+          title: 'OK',
+          template: 'Logado'
+        });
+      }, function(error) {
+          $ionicPopup.alert({
+          title: 'Erro no login',
+          template: error
+        });
+      });  
+    }catch(err){
+      alert(err);
+    }
+
+  }
+
+  $scope.abreCordova = function (){
+    var options = {
+      location: 'yes',
+      clearcache: 'yes',
+      toolbar: 'no'
+    };
+    
+     $cordovaInAppBrowser.open('http://ngcordova.com', '_blank', options)
+      .then(function(event) {
+        // success
+      })
+      .catch(function(event) {
+        // error
+      });
+
+  }
 
 }
