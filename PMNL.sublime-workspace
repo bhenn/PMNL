@@ -4,6 +4,26 @@
 		"selected_items":
 		[
 			[
+				"aler",
+				"alertPopup"
+			],
+			[
+				"res",
+				"restart"
+			],
+			[
+				"players",
+				"players"
+			],
+			[
+				"player",
+				"playersRanking"
+			],
+			[
+				"pla",
+				"players"
+			],
+			[
 				"for",
 				"for	for (…) {…}"
 			],
@@ -43,6 +63,30 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "www/templates/games.html",
+			"settings":
+			{
+				"buffer_size": 554,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "www/templates/gameInsert.html",
+			"settings":
+			{
+				"buffer_size": 1704,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "www/js/controllers/gameInsertController.js",
+			"settings":
+			{
+				"buffer_size": 3708,
+				"line_ending": "Windows"
+			}
+		}
 	],
 	"build_system": "Packages/Ruby/Ruby.sublime-build",
 	"command_palette":
@@ -76,12 +120,16 @@
 	},
 	"file_history":
 	[
+		"/C/Projetos/Ionic/PMNL/www/js/controllers.js",
+		"/C/Projetos/Ionic/PMNL/www/css/style.css",
+		"/C/Projetos/Ionic/PMNL/www/templates/gameInsert.html",
+		"/C/Projetos/Ionic/PMNL/www/js/controllers/gameInsertController.js",
+		"/C/Projetos/Ionic/PMNL/www/templates/ranking-preview.html",
+		"/C/Projetos/Ionic/PMNL/www/js/globals.js",
+		"/C/Projetos/Ionic/PMNL/www/templates/ranking.html",
 		"/C/Projetos/Ionic/PMNL/www/index.html",
 		"/C/Projetos/Ionic/PMNL/www/js/services/player.service.js",
 		"/C/Projetos/Ionic/PMNL/www/js/services/games.service.js",
-		"/C/Projetos/Ionic/PMNL/www/js/globals.js",
-		"/C/Projetos/Ionic/PMNL/www/js/controllers.js",
-		"/C/Projetos/Ionic/PMNL/www/templates/gameInsert.html",
 		"/C/Projetos/Ionic/PMNL/www/templates/game.html",
 		"/C/Projetos/Ionic/PMNL/www/js/app.js",
 		"/C/Projetos/Ionic/PMNL/www/templates/games.html",
@@ -159,6 +207,11 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"playersRanking",
+			"$scope.players",
+			"$scope.playersPreview",
+			"$scope.player",
+			"$scope.playersPreview",
 			"\">",
 			"playerDataService",
 			"button-footer",
@@ -195,8 +248,92 @@
 	"groups":
 	[
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "www/templates/games.html",
+					"settings":
+					{
+						"buffer_size": 554,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								554,
+								554
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/AngularJS/AngularJS.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "www/templates/gameInsert.html",
+					"settings":
+					{
+						"buffer_size": 1704,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								18,
+								20
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/AngularJS/AngularJS.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "www/js/controllers/gameInsertController.js",
+					"settings":
+					{
+						"buffer_size": 3708,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1149,
+								1152
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -242,6 +379,38 @@
 		"selected_items":
 		[
 			[
+				"gameinserco",
+				"www/js/controllers/gameInsertController.js"
+			],
+			[
+				"gameins",
+				"www/templates/gameInsert.html"
+			],
+			[
+				"contro",
+				"www/js/controllers.js"
+			],
+			[
+				"games",
+				"www/templates/games.html"
+			],
+			[
+				"gameinser",
+				"www/templates/gameInsert.html"
+			],
+			[
+				"previ",
+				"www/templates/ranking-preview.html"
+			],
+			[
+				"preview",
+				"www/templates/ranking-preview.html"
+			],
+			[
+				"ranki",
+				"www/templates/ranking.html"
+			],
+			[
 				"globa",
 				"www/js/globals.js"
 			],
@@ -254,10 +423,6 @@
 				"www/js/controllers.js"
 			],
 			[
-				"gameinser",
-				"www/templates/gameInsert.html"
-			],
-			[
 				"app",
 				"www/js/app.js"
 			],
@@ -268,10 +433,6 @@
 			[
 				"game",
 				"www/templates/game.html"
-			],
-			[
-				"contro",
-				"www/js/controllers.js"
 			],
 			[
 				"edita",
