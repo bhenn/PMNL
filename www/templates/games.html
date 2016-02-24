@@ -1,4 +1,4 @@
-<ion-view view-title="Rodadas">
+<ion-view view-title="Rodadas" class="fundo">
   <ion-content>
 	<ion-refresher pulling-text="Pull to refresh" on-refresh="doRefresh()">
   	</ion-refresher>
@@ -7,7 +7,7 @@
 		  		<a class="item item-text-wrap" href="#/app/games/{{game.id}}">
 				  	<h2> {{game.description}} </h2>
 				  	<h3> {{game.date | date: "dd/MM/yyyy"}} </h3>
-				  	<p> Vencedor : {{game.winnerPlayerName}} </p>
+				  	<p><i class="icon ion-ribbon-a"></i>  {{game.winnerPlayerName}} </p>
 				</a>
 			</div>
 		</div>

@@ -30,7 +30,7 @@
   background: -webkit-linear-gradient(rgba(33, 94, 103,0.6), rgba(1, 46, 52,0.9)); /* For Safari 5.1 to 6.0 */
   background: -o-linear-gradient(rgba(33, 94, 103,0.6), rgba(1, 46, 52,0.9)); /* For Opera 11.1 to 12.0 */
   background: -moz-linear-gradient(rgba(33, 94, 103,0.6), rgba(1, 46, 52,0.9)); /* For Firefox 3.6 to 15 */
-  background: linear-gradient(rgba(225, 169, 88,0.6), rgba(37, 99, 97,0.8)); /* Standard syntax (must be last) */
+  background: linear-gradient(rgba(116, 143, 104,0.9), rgba(116, 143, 104,0.6)); /* Standard syntax (must be last) */
 }
 
 .list{
@@ -44,8 +44,16 @@
   opacity: 0.9;
 }
 
-.menu .item .icon{
+.icon{
   margin-right: 10px;
   font-size: 21px
+}
+
+.menu .item a:active{
+  background-color: #3E423C;
+}
+
+.fundo{
+  background-color: #D6DCD3;
 }
 
