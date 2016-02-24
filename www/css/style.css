@@ -57,3 +57,8 @@
   background-color: #D6DCD3;
 }
 
+.spinner svg {
+  width: 60px !important;
+  height: 60px !important;
+}
+

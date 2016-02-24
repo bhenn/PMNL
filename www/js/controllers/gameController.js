@@ -8,7 +8,7 @@ function GameCtrl($scope,gamesDataService,$q,$ionicLoading,gamesDataService,$sta
 
   $scope.show = function(){
     $ionicLoading.show({
-      template: '<p>Loading...</p><ion-spinner></ion-spinner>',
+      template: '<ion-spinner icon="ripple" class="spinner-balanced"></ion-spinner>',
       delay: 100
     });
   };
