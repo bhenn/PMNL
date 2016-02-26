@@ -1,31 +1,30 @@
-<ion-modal-view>
+<ion-panel>
   <ion-header-bar>
-    <h1 class="title">Login</h1>
-    <div class="buttons">
-      <button class="button button-clear" ng-click="closeLogin()">Close</button>
-    </div>
+      <h1 class="title">Seja Bem vindo!</h1>
   </ion-header-bar>
   <ion-content>
-    <form ng-submit="facebook()">
-      <div class="list">
-        <label class="item item-input">
-          <span class="input-label">Username</span>
-          <input type="text" ng-model="loginData.username">
-        </label>
-        <label class="item item-input">
-          <span class="input-label">Password</span>
-          <input type="password" ng-model="loginData.password">
-        </label>
-        <label class="item">
-          <button class="button button-block button-positive" type="submit">Log in</button>
-        </label>
-        <label class="item">
-          <button class="button button-block button-positive" type="submit">Facebook</button>
-        </label>
+  <form ng-submit="doLogin()">
+    <div class="list">
+      <label class="item item-input">
+        <span class="input-label">Username</span>
+        <input type="text" ng-model="loginData.username">
+      </label>
+      <label class="item item-input">
+        <span class="input-label">Password</span>
+        <input type="password" ng-model="loginData.password">
+      </label>
+      <p ng-show="msgErro != ''" class="erroLogin">{{msgErro}}</p>
+      <label class="item">
+        <button class="button button-block button-positive" type="submit" ng-show="loading=='false'">Log in</button>
+      </label>
+      <!-- <label class="item">
+        <button class="button button-block button-positive" type="submit">Facebook</button>
+      </label> -->
+      <div class="center">
+        <ion-spinner icon="ripple" class="spinner-balanced" ng-show="loading == 'true'" ></ion-spinner>
       </div>
-    </form>
-    <label class="item">
-          <button class="button button-block button-positive" ng-click="abreCordova()">Window</button>
-        </label>
+      
+    </div>
+  </form>
   </ion-content>
-</ion-modal-view>
+</ion-panel>

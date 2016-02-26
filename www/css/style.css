@@ -62,3 +62,11 @@
   height: 60px !important;
 }
 
+.erroLogin{
+  text-align: center;
+  color:red;
+}
+
+.center{
+  align-items: center;
+}

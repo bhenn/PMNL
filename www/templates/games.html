@@ -4,7 +4,7 @@
   	</ion-refresher>
 		<div ng-repeat="game in games">
 		  	<div class="card" >
-		  		<a class="item item-text-wrap" href="#/app/games/{{game.id}}">
+		  		<a class="item item-text-wrap" href="#/games/{{game.id}}">
 				  	<h2> {{game.description}} </h2>
 				  	<h3> {{game.date | date: "dd/MM/yyyy"}} </h3>
 				  	<p><i class="icon ion-ribbon-a"></i>  {{game.winnerPlayerName}} </p>

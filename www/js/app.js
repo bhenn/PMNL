@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic','ionic.service.core', 'starter.controllers','ngCordova','ngCordovaOauth'])
+angular.module('starter', ['ionic','ionic.service.core', 'starter.controllers','ngCordova','ngCordovaOauth','starter.services'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -25,83 +25,88 @@ angular.module('starter', ['ionic','ionic.service.core', 'starter.controllers','
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
 
-    .state('app', {
-    url: '/app',
+  .state('login', {
+    url: '/login',
+    templateUrl: 'templates/login.html',
+    controller: 'LoginCtrl'
+  })
+
+  .state('app', {
     abstract: true,
     templateUrl: 'templates/menu.html',
     controller: 'AppCtrl'
   })
 
-    .state('app.ranking', {
-      url: '/ranking',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/ranking.html',
-          controller: 'RankingCtrl'
-        }
+  .state('app.ranking', {
+    url: '/ranking',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/ranking.html',
+        controller: 'RankingCtrl'
       }
-    })
+    }
+  })
 
-    .state('app.players', {
-      url: '/players',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/players.html',
-          controller: 'PlayersCtrl'
-        }
+  .state('app.players', {
+    url: '/players',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/players.html',
+        controller: 'PlayersCtrl'
       }
-    })
+    }
+  })
 
-    .state('app.player', {
-      url: '/players/:id',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/player.html',
-          controller: 'PlayerCtrl'
-        }
+  .state('app.player', {
+    url: '/players/:id',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/player.html',
+        controller: 'PlayerCtrl'
       }
-    })
+    }
+  })
 
-    .state('app.games', {
-      url: '/games',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/games.html',
-          controller: 'GamesCtrl'
-        }
+  .state('app.games', {
+    url: '/games',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/games.html',
+        controller: 'GamesCtrl'
       }
-    })
+    }
+  })
 
-    .state('app.game', {
-      url: '/games/:id',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/game.html',
-          controller: 'GameCtrl'
-        }
+  .state('app.game', {
+    url: '/games/:id',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/game.html',
+        controller: 'GameCtrl'
       }
-    })
+    }
+  })
 
-    .state('app.gameInsert', {
-      url: '/gameInsert',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/gameInsert.html',
-          controller: 'GameInsertCtrl'
-        }
+  .state('app.gameInsert', {
+    url: '/gameInsert',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/gameInsert.html',
+        controller: 'GameInsertCtrl'
       }
-    })
+    }
+  })
 
-    .state('app.update', {
-      url: '/update',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/update.html',
-          controller: 'DashCtrl'
-        }
+  .state('app.update', {
+    url: '/update',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/update.html',
+        controller: 'DashCtrl'
       }
-    })
+    }
+  })
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/ranking');
+  $urlRouterProvider.otherwise('/login');
 });

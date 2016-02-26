@@ -2,13 +2,16 @@ angular.module('starter.controllers')
 
 .controller('RankingCtrl',RankingCtrl);
 
-RankingCtrl.$inject = ['$scope','$ionicLoading','$q','playerDataService'];
+RankingCtrl.$inject = ['$scope','$ionicLoading','$q','playerDataService','Auth'];
 
-function RankingCtrl($scope,$ionicLoading,$q,playerDataService){
+function RankingCtrl($scope,$ionicLoading,$q,playerDataService,Auth){
 
   function init() {
-    $scope.show();
-    getPlayers();
+    if (Auth.logged()){
+      $scope.show();
+      getPlayers();  
+    }
+    
   }
 
   $scope.doRefresh = function(){
