@@ -1,0 +1,24 @@
+<ion-view view-title="Votação" class="fundo">
+<ion-content>
+<div>{{erro}}</div>
+<ion-refresher pulling-text="Pull to refresh" on-refresh="doRefresh()">
+</ion-refresher>
+<div ng-repeat="day in days">
+	<div class="card" href="#">
+		<div class="item item-divider">
+			<h2> {{day.date}} - {{day.totalvotes}}</h2>
+		</div>
+		<div class="item item-text-wrap">
+			<div ng-repeat="vote in day.votes">
+				<p> - {{vote.username}}</p>	
+			</div>
+		</div>
+		<div class="item item-divider">
+		<button class="button ion-checkmark vote voteYes" ng-class="{'button-outline button-balanced' : day.voted}" ng-click="voteYes($index)" ng-disabled="day.voted"></button>
+		<button class="button ion-close vote voteNo" ng-class="{'button-outline button-assertive' : !day.voted}" ng-click="voteNo($index)" ng-disabled="!day.voted"></button>
+		</div>
+	</div>
+	<div>
+	</ion-content>
+</ion-view>
+

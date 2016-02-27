@@ -87,12 +87,12 @@ angular.module('starter', ['ionic','ionic.service.core', 'starter.controllers','
     }
   })
 
-  .state('app.gameInsert', {
-    url: '/gameInsert',
+  .state('app.election', {
+    url: '/election',
     views: {
       'menuContent': {
-        templateUrl: 'templates/gameInsert.html',
-        controller: 'GameInsertCtrl'
+        templateUrl: 'templates/election.html',
+        controller: 'ElectionCtrl'
       }
     }
   })
@@ -108,5 +108,5 @@ angular.module('starter', ['ionic','ionic.service.core', 'starter.controllers','
   })
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/login');
+  $urlRouterProvider.otherwise('/ranking');
 });

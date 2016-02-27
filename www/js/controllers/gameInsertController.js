@@ -55,19 +55,6 @@ function GameInsertCtrl($scope,gamesDataService,$q,$ionicLoading,playerDataServi
      $scope.players.splice(toIndex, 0, player);
   };
 
-  function getPlayers() {
-    var deferred = $q.defer();
-
-    playerDataService.lista()
-    .then(function (result) {
-        $scope.players = result.data;
-        playerRankingOriginal = angular.copy(result.data);
-        $scope.hide();
-    });
-
-    return deferred.promise;
-  }
-
   $scope.insertGame = function(){
     $scope.show();
     var deferred = $q.defer();
@@ -89,9 +76,10 @@ function GameInsertCtrl($scope,gamesDataService,$q,$ionicLoading,playerDataServi
       $ionicPopup.alert({
         title: 'OK',
         template: 'Rodada Incluída'
-      })
-      .then(function(){
+      }).then(function(){
         $scope.restart();
+        $scope.doRefresh();
+        $scope.closeGameInsert();
       });
 
     })
@@ -117,6 +105,19 @@ function GameInsertCtrl($scope,gamesDataService,$q,$ionicLoading,playerDataServi
     init();
   }
 
+  function getPlayers() {
+    var deferred = $q.defer();
+
+    playerDataService.lista()
+    .then(function (result) {
+        $scope.players = result.data;
+        playerRankingOriginal = angular.copy(result.data);
+        $scope.hide();
+    });
+
+    return deferred.promise;
+  }
+
   function init() {
     $scope.show();
     getPlayers();
@@ -134,26 +135,6 @@ function GameInsertCtrl($scope,gamesDataService,$q,$ionicLoading,playerDataServi
   function getPoints(players,position){
     return pontuacao[players - 5][position];
   }
-
-  // $scope.vibra = function (){
-  //   $cordovaTouchID.checkSupport().then(function() {
-  //       validaID();        
-  //     }, function (error) {
-  //       alert(error);
-  //     });    
-  // }
-
-  // function validaID(){
-  //   try{
-  //     $cordovaTouchID.authenticate("text").then(function() {
-  //       alert('deboas');
-  //     }, function (err) {
-  //       alert('Não deu' + err);  
-  //     });
-  //   }catch(err){
-  //     alert(err);      
-  //   }
-  // }
 
   init();
   

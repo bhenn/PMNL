@@ -70,3 +70,16 @@
 .center{
   align-items: center;
 }
+
+.vote{
+  padding-left: 70px;
+  padding-right: 70px;
+}
+
+.voteYes{
+  float:left;
+}
+
+.voteNo{
+  float:right;
+}

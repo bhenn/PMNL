@@ -2,9 +2,9 @@ angular.module('starter.controllers')
 
 .controller('GamesCtrl',GamesCtrl);
 
-GamesCtrl.$inject = ['$scope', 'gamesDataService','$q','$ionicLoading'];
+GamesCtrl.$inject = ['$scope', 'gamesDataService','$q','$ionicLoading','$ionicModal'];
 
-function GamesCtrl($scope,gamesDataService,$q,$ionicLoading){
+function GamesCtrl($scope,gamesDataService,$q,$ionicLoading,$ionicModal){
 
   $scope.show = function(){
     $ionicLoading.show({
@@ -17,6 +17,20 @@ function GamesCtrl($scope,gamesDataService,$q,$ionicLoading){
     $ionicLoading.hide();
   };
 
+  $ionicModal.fromTemplateUrl('templates/gameInsert.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function(modal) {
+    $scope.modal = modal
+  })
+
+  $scope.openGameInsert = function(){
+    $scope.modal.show();
+  }
+  $scope.closeGameInsert = function(){
+    $scope.modal.hide();
+  }
+
   $scope.doRefresh = function(){
     getGames();
     $scope.$broadcast('scroll.refreshComplete');
@@ -27,18 +41,19 @@ function GamesCtrl($scope,gamesDataService,$q,$ionicLoading){
     getGames();
   }
 
+
   function getGames(){
    var deferred = $q.defer();
 
-    gamesDataService.lista()
-    .then(function (result) {
-        $scope.games = result.data;
-        $scope.hide();
-    });
+   gamesDataService.lista()
+   .then(function (result) {
+    $scope.games = result.data;
+    $scope.hide();
+  });
 
-    return deferred.promise; 
-  }
+   return deferred.promise; 
+ }
 
-  init();
+ init();
 
 }

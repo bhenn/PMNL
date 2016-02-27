@@ -1,32 +1,38 @@
-<ion-view view-title="Nova Rodada" class="fundo">
-  <ion-content>
-  <form name="formInsertGame" ng-submit="insertGame()" novalidate>
-    <label class="item item-input" ng-class="{ 'has-errors' : formInsertGame.gameDescricao.$invalid && formInsertGame.gameDescricao.$dirty, 'no-errors' : formInsertGame.gameDescricao.$valid && formInsertGame.gameDescricao.$dirty}" >
-      <span class="input-label">Descrição</span>
-      <input name="gameDescricao" ng-model="game.descricao" type="text" placeholder="Descrição" required>
-    </label>
-  	<label class="item item-input" ng-class="{ 'has-errors' : formInsertGame.gameDate.$invalid && formInsertGame.gameDate.$dirty, 'no-errors' : formInsertGame.gameDate.$valid && formInsertGame.gameDate.$dirty}">
-  		<span class="input-label">Data</span>
-  		<input name="gameDate" type="date" ng-model="game.date" placeholder="Data" required>
-	  </label>
-    <div class="col"></div>
-    <ion-list show-reorder="shouldShowReorder" can-swipe="listCanSwipe" show-delete="shouldShowDelete">
-      <ion-item ng-repeat="player in players">
-  		  <h2>{{$index + 1}} - {{player.name}}</h2>
+<ion-modal-view class="fundo" ng-controller="GameInsertCtrl">
+<ion-header-bar>
+<h1 class="title">Nova rodada</h1>
+<div class="buttons">
+  <button class="button button-clear" ng-click="closeGameInsert()">Close</button>
+</div>
+</ion-header-bar>
+<ion-content>
+<form name="formInsertGame" ng-submit="insertGame()" novalidate>
+  <label class="item item-input" ng-class="{ 'has-errors' : formInsertGame.gameDescricao.$invalid && formInsertGame.gameDescricao.$dirty, 'no-errors' : formInsertGame.gameDescricao.$valid && formInsertGame.gameDescricao.$dirty}" >
+    <span class="input-label">Descrição</span>
+    <input name="gameDescricao" ng-model="game.descricao" type="text" placeholder="Descrição" required>
+  </label>
+  <label class="item item-input" ng-class="{ 'has-errors' : formInsertGame.gameDate.$invalid && formInsertGame.gameDate.$dirty, 'no-errors' : formInsertGame.gameDate.$valid && formInsertGame.gameDate.$dirty}">
+    <span class="input-label">Data</span>
+    <input name="gameDate" type="date" ng-model="game.date" placeholder="Data" required>
+  </label>
+  <div class="col"></div>
+  <ion-list show-reorder="shouldShowReorder" can-swipe="listCanSwipe" show-delete="shouldShowDelete">
+  <ion-item ng-repeat="player in players">
+  <h2>{{$index + 1}} - {{player.name}}</h2>
 
-  		  <ion-delete-button class="ion-minus-circled" ng-click="removeItem($index)" />
-        <ion-reorder-button class="ion-navicon" on-reorder="moveItem(player, $fromIndex, $toIndex)" />
-      </ion-item>
-    </ion-list>
-    <button class="button button-block button-balanced" ng-disabled="formInsertGame.$invalid">
-      Salvar
-    </button>
-   </form>
-    <button class="button button-block button-positive" ng-click="restart()">
-      Recomeçar
-    </button>
-    <button class="button button-block button-positive" ng-click="openPreview()" >
-      Preview
-    </button>
-  </ion-content>
-</ion-view>
+  <ion-delete-button class="ion-minus-circled" ng-click="removeItem($index)" />
+  <ion-reorder-button class="ion-navicon" on-reorder="moveItem(player, $fromIndex, $toIndex)" />
+</ion-item>
+</ion-list>
+<button class="button button-block button-balanced" ng-disabled="formInsertGame.$invalid">
+  Salvar
+</button>
+</form>
+<button class="button button-block button-positive" ng-click="restart()">
+  Recomeçar
+</button>
+<button class="button button-block button-positive" ng-click="openPreview()" >
+  Preview
+</button>
+</ion-content>
+</ion-modal-view>

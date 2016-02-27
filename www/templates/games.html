@@ -1,18 +1,29 @@
 <ion-view view-title="Rodadas" class="fundo">
-  <ion-content>
-	<ion-refresher pulling-text="Pull to refresh" on-refresh="doRefresh()">
-  	</ion-refresher>
-		<div ng-repeat="game in games">
-		  	<div class="card" >
-		  		<a class="item item-text-wrap" href="#/games/{{game.id}}">
-				  	<h2> {{game.description}} </h2>
-				  	<h3> {{game.date | date: "dd/MM/yyyy"}} </h3>
-				  	<p><i class="icon ion-ribbon-a"></i>  {{game.winnerPlayerName}} </p>
-				</a>
-			</div>
-		</div>
-		<div ng-show="games.length == 0">
-			<p>Não  há rodadas cadastradas</p>
-		</div>
-  </ion-content>
+<ion-nav-bar class="bar-stable nav-title-slide-ios7">
+<ion-nav-back-button>
+</ion-nav-back-button>
+<ion-nav-buttons side="left">
+<button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+</button>
+</ion-nav-buttons>
+<ion-nav-buttons side="right">
+<button class="button icon ion-android-add-circle" ng-click="openGameInsert()"></button>
+</ion-nav-buttons>
+</ion-nav-bar>
+<ion-content>
+<ion-refresher pulling-text="Pull to refresh" on-refresh="doRefresh()">
+</ion-refresher>
+<div ng-repeat="game in games">
+	<div class="card" >
+		<a class="item item-text-wrap" href="#/games/{{game.id}}">
+			<h2> {{game.description}} </h2>
+			<h3> {{game.date | date: "dd/MM/yyyy"}} </h3>
+			<p><i class="icon ion-ribbon-a"></i>  {{game.winnerPlayerName}} </p>
+		</a>
+	</div>
+</div>
+<div ng-show="games.length == 0">
+	<p>Não  há rodadas cadastradas</p>
+</div>
+</ion-content>
 </ion-view>

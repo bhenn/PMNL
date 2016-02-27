@@ -19,7 +19,7 @@ function LoginCtrl($scope,$timeout,$location,Auth,$state){
     if ($scope.loginData.username == "admin" && $scope.loginData.password == "admin"){
       $timeout(function() {
         Auth.doLogin($scope.loginData);
-        //$state.go('app.ranking');
+        $state.go('app.ranking');
         //$location.path('/ranking');
         $scope.loading = 'false';
       }, 4000);
@@ -27,9 +27,6 @@ function LoginCtrl($scope,$timeout,$location,Auth,$state){
       $scope.msgErro = "Usuário/senha inválidos";
       $scope.loading = 'false';
     }
-
-
-    
 
   };
 }
