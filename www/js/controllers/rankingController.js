@@ -2,17 +2,35 @@ angular.module('starter.controllers')
 
 .controller('RankingCtrl',RankingCtrl);
 
-RankingCtrl.$inject = ['$scope','$ionicLoading','$q','playerDataService','Auth'];
+RankingCtrl.$inject = ['$scope','$ionicLoading','$q','playerDataService','Auth','$state','$ionicModal'];
 
-function RankingCtrl($scope,$ionicLoading,$q,playerDataService,Auth){
+function RankingCtrl($scope,$ionicLoading,$q,playerDataService,Auth,$state,$ionicModal){
 
   function init() {
     if (Auth.logged()){
       $scope.show();
       getPlayers();  
+    }else{
+      $scope.openLogin();
     }
     
   }
+
+  $ionicModal.fromTemplateUrl('templates/login.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function(modal) {
+    $scope.modal = modal
+  })
+
+  $scope.openLogin = function(){
+    $scope.modal.show();
+  }
+
+  $scope.closeLogin = function(){
+    $scope.modal.hide();
+  }
+
 
   $scope.doRefresh = function(){
     getPlayers();
@@ -34,11 +52,11 @@ function RankingCtrl($scope,$ionicLoading,$q,playerDataService,Auth){
     var deferred = $q.defer();
 
     playerDataService.lista().then(function (result) {
-        $scope.players = result.data;
-        $scope.hide();
+      $scope.players = result.data;
+      $scope.hide();
     }, function(err){
-        $scope.erro = "Erro -> " + err.statusText;
-        $scope.hide();
+      $scope.erro = "Erro -> " + err.statusText;
+      $scope.hide();
     });
 
     return deferred.promise;

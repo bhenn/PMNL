@@ -25,14 +25,15 @@ angular.module('starter', ['ionic','ionic.service.core', 'starter.controllers','
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
 
+
   .state('login', {
     url: '/login',
     templateUrl: 'templates/login.html',
-    controller: 'LoginCtrl'
+    controller: 'AppCtrl'
   })
 
   .state('app', {
-    abstract: true,
+    abstract: true, 
     templateUrl: 'templates/menu.html',
     controller: 'AppCtrl'
   })
@@ -108,5 +109,5 @@ angular.module('starter', ['ionic','ionic.service.core', 'starter.controllers','
   })
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/ranking');
+  $urlRouterProvider.otherwise('/login');
 });

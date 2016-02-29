@@ -1,9 +1,9 @@
-<ion-panel>
+<ion-panel ng-controller="LoginCtrl">
   <ion-header-bar>
       <h1 class="title">Seja Bem vindo!</h1>
   </ion-header-bar>
   <ion-content>
-  <form ng-submit="doLogin()">
+  <form>
     <div class="list">
       <label class="item item-input">
         <span class="input-label">Username</span>
@@ -15,11 +15,11 @@
       </label>
       <p ng-show="msgErro != ''" class="erroLogin">{{msgErro}}</p>
       <label class="item">
-        <button class="button button-block button-positive" type="submit" ng-show="loading=='false'">Log in</button>
+        <button class="button button-block button-positive" ng-click="doLogin()" ng-show="loading=='false'">Log in</button>
       </label>
-      <!-- <label class="item">
-        <button class="button button-block button-positive" type="submit">Facebook</button>
-      </label> -->
+      <label class="item">
+        <button class="button button-block button-positive" ng-click="loginFacebook()">Facebook</button>
+      </label>
       <div class="center">
         <ion-spinner icon="ripple" class="spinner-balanced" ng-show="loading == 'true'" ></ion-spinner>
       </div>

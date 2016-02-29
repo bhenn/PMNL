@@ -2,12 +2,16 @@ angular.module('starter.controllers')
 
 .controller('LoginCtrl',LoginCtrl);
 
-LoginCtrl.$inject = ['$scope', '$timeout','$location','Auth','$state'];
+LoginCtrl.$inject = ['$scope', '$timeout','$location','Auth','$state', '$cordovaOauth'];
 
-function LoginCtrl($scope,$timeout,$location,Auth,$state){
+function LoginCtrl($scope,$timeout,$location,Auth,$state,$cordovaOauth){
   // Perform the login action when the user submits the login form
 
-  $scope.loginData = {username: "",password:""};
+  if (Auth.logged()){
+    $state.go('app.ranking');
+  }
+
+  $scope.loginData = {username: "admin",password:"admin"};
   $scope.msgErro = "";
   $scope.loading = 'false';
 
@@ -20,13 +24,21 @@ function LoginCtrl($scope,$timeout,$location,Auth,$state){
       $timeout(function() {
         Auth.doLogin($scope.loginData);
         $state.go('app.ranking');
-        //$location.path('/ranking');
         $scope.loading = 'false';
-      }, 4000);
+      }, 1000);
     }else{
       $scope.msgErro = "Usuário/senha inválidos";
       $scope.loading = 'false';
     }
 
   };
+
+  $scope.loginFacebook = function(){
+   $cordovaOauth.facebook("1644507495810496", ["email"]).then(function(result) {
+            alert('Logado');
+          }, function(error) {
+            alert('Erro ' + error);
+          });
+ }
+
 }
