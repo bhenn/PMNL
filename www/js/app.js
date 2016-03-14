@@ -4,25 +4,60 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic','ionic.service.core', 'starter.controllers','ngCordova','ngCordovaOauth','starter.services'])
+angular.module('starter', ['ionic',
+ 'ionic.service.core',
+ 'starter.controllers',
+ 'ngCordova',
+ 'ngCordovaOauth',
+ 'auth0',
+ 'angular-storage',
+ 'angular-jwt'])
 
-.run(function($ionicPlatform) {
+.run(function($ionicPlatform,auth,$location,$rootScope,store,jwtHelper) {
   $ionicPlatform.ready(function() {
-    // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
-    // for form inputs)
     if (window.cordova && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
       cordova.plugins.Keyboard.disableScroll(true);
 
     }
     if (window.StatusBar) {
-      // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
     }
+
   });
+
+  auth.hookEvents();
+
+  var refreshingToken = null;
+  $rootScope.$on('$locationChangeStart', function() {
+    var token = store.get('token');
+    var refreshToken = store.get('refreshToken');
+    if (token) {
+      if (!jwtHelper.isTokenExpired(token)) {
+        if (!auth.isAuthenticated) {
+          auth.authenticate(store.get('profile'), token);
+        }
+      } else {
+        if (refreshToken) {
+          if (refreshingToken === null) {
+            refreshingToken = auth.refreshIdToken(refreshToken).then(function(idToken) {
+              store.set('token', idToken);
+              auth.authenticate(store.get('profile'), idToken);
+            }).finally(function() {
+              refreshingToken = null;
+            });
+          }
+          return refreshingToken;
+        } else {
+          $location.path('/login');
+        }                          
+      }
+    }
+  })
+  
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $urlRouterProvider,authProvider) {
   $stateProvider
 
 
@@ -107,6 +142,12 @@ angular.module('starter', ['ionic','ionic.service.core', 'starter.controllers','
       }
     }
   })
+
+  authProvider.init({
+    domain: 'henn.auth0.com',
+    clientID: 'i7TtCI4YgBjiZ7Sahz5I26MA5Vym9EJk',
+    loginState: 'login' // This is the name of the state where you'll show the login, which is defined above...
+  });
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/login');

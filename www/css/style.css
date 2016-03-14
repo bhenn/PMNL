@@ -33,15 +33,14 @@
   background: linear-gradient(rgba(116, 143, 104,0.9), rgba(116, 143, 104,0.6)); /* Standard syntax (must be last) */
 }
 
-.list{
-  padding-top: 50px;
-}
-
 .menu .item, .menu .item-content{
   background-color: transparent;
   border-color: transparent;
   color:white;
-  opacity: 0.9;
+}
+
+.menu .list .item{
+  border-color: rgba(255, 255, 255, .1);
 }
 
 .icon{
@@ -82,4 +81,17 @@
 
 .voteNo{
   float:right;
+}
+
+.avatar{ /* selector for avatar class*/
+    margin: auto;
+    margin-top: 8px;
+    width: 80px; 
+    height: 80px; 
+    border-radius: 50%; /* border-radius is equal to 50 percent of a general width, actually 25 pixels, here and a circle was got(there is also with prefix - moz and - o) */
+}
+.avatar img{ /* selector for a picture which is "inside" the avatar class */
+    display: block; /* a picture is being displayed as a block, by a width it will be equal to the parent(in the div) */
+    width: 100%; /* width 100% */
+    border-radius: 50%; /* read above */
 }

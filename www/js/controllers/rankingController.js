@@ -2,17 +2,17 @@ angular.module('starter.controllers')
 
 .controller('RankingCtrl',RankingCtrl);
 
-RankingCtrl.$inject = ['$scope','$ionicLoading','$q','playerDataService','Auth','$state','$ionicModal'];
+RankingCtrl.$inject = ['$scope','$ionicLoading','$q','playerDataService','$state','$ionicModal'];
 
-function RankingCtrl($scope,$ionicLoading,$q,playerDataService,Auth,$state,$ionicModal){
+function RankingCtrl($scope,$ionicLoading,$q,playerDataService,$state,$ionicModal){
 
   function init() {
-    if (Auth.logged()){
-      $scope.show();
-      getPlayers();  
-    }else{
-      $scope.openLogin();
-    }
+    // if (Auth.logged()){
+       $scope.show();
+       getPlayers();  
+    // }else{
+    //   $scope.openLogin();
+    // }
     
   }
 

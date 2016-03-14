@@ -2,9 +2,9 @@ angular.module('starter.controllers')
 
 .controller('AppCtrl',AppCtrl);
 
-AppCtrl.$inject = ['$scope','$location','$window','Auth','$ionicViewService','auth','store'];
+AppCtrl.$inject = ['$scope','$location','$window','$ionicViewService','auth','store'];
 
-function AppCtrl($scope,$location,$window,Auth,$ionicViewService,auth,store){
+function AppCtrl($scope,$location,$window,$ionicViewService,auth,store){
 
 	$scope.auth = auth;
 

@@ -11,15 +11,18 @@
 		<ion-nav-view name="menuContent"></ion-nav-view>
 	</ion-side-menu-content>
 	<ion-side-menu side="left">
-		<ion-content>
+		<!-- <ion-content> -->
+			<div class="avatar">
+				<img ng-src="{{auth.profile.picture}}" alt="">				
+			</div>
+			<div class="item item-text-wrap" style="text-align: center">{{auth.profile.name}}</div>
 			<ion-list>
-				<ion-item menu-close >{{auth.profile.name}}</ion-item>
 				<ion-item menu-close href="#/ranking"><i class="icon ion-podium"></i>Ranking</ion-item>
 				<ion-item menu-close href="#/players"><i class="icon ion-android-people"></i>Jogadores</ion-item>
 				<ion-item menu-close href="#/games"><i class="icon ion-android-list"></i>Rodadas</ion-item>
 				<ion-item menu-close href="#/election"><i class="icon ion-calendar"></i>Votação</ion-item>
 				<ion-item menu-close ng-click="logOut()"><i class="icon ion-log-out"></i>Logout</ion-item>
 			</ion-list>
-		</ion-content>
+		<!-- </ion-content> -->
 	</ion-side-menu>
 </ion-side-menus>
