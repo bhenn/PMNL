@@ -4,26 +4,6 @@
 		"selected_items":
 		[
 			[
-				"aler",
-				"alertPopup"
-			],
-			[
-				"res",
-				"restart"
-			],
-			[
-				"players",
-				"players"
-			],
-			[
-				"player",
-				"playersRanking"
-			],
-			[
-				"pla",
-				"players"
-			],
-			[
 				"for",
 				"for	for (…) {…}"
 			],
@@ -64,34 +44,42 @@
 	"buffers":
 	[
 		{
-			"file": "www/templates/games.html",
+			"file": "www/index.html",
 			"settings":
 			{
-				"buffer_size": 554,
+				"buffer_size": 2440,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "www/templates/gameInsert.html",
+			"contents": "var url = \"http://pmnlapi.azurewebsites.net/api\";\nvar url = \"http://localhost:64789/api\";\n\nvar pontuacao = [\n/*5*/ [11,7,4,2,1], \n/*6*/ [14,9,6,4,2,1],\n/*7*/ [17,11,8,5,3,2,1],\n/*8*/ [19,13,9,6,4,3,2,1],\n/*9*/ [21,15,10,7,5,4,3,2,1],\n/*10*/[23,16,11,8,6,5,4,3,2,1]\n]\n\n",
+			"file": "www/js/globals.js",
+			"file_size": 282,
+			"file_write_time": 131028205837654935,
 			"settings":
 			{
-				"buffer_size": 1704,
+				"buffer_size": 268,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "www/js/controllers/gameInsertController.js",
+			"file": "www/js/app.js",
 			"settings":
 			{
-				"buffer_size": 3708,
+				"buffer_size": 3660,
 				"line_ending": "Windows"
 			}
 		}
 	],
 	"build_system": "Packages/Ruby/Ruby.sublime-build",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
 	"command_palette":
 	{
 		"height": 81.0,
+		"last_filter": "",
 		"selected_items":
 		[
 			[
@@ -107,7 +95,10 @@
 	},
 	"console":
 	{
-		"height": 0.0
+		"height": 0.0,
+		"history":
+		[
+		]
 	},
 	"distraction_free":
 	{
@@ -118,22 +109,28 @@
 		"side_bar_visible": false,
 		"status_bar_visible": false
 	},
+	"expanded_folders":
+	[
+		"/C/Projetos/Ionic/PMNL",
+		"/C/Projetos/Ionic/PMNL/www/js",
+		"/C/Projetos/Ionic/PMNL/www/js/services"
+	],
 	"file_history":
 	[
+		"/C/Projetos/Ionic/PMNL/www/js/controllers/loginController.js",
 		"/C/Projetos/Ionic/PMNL/www/js/controllers.js",
-		"/C/Projetos/Ionic/PMNL/www/css/style.css",
-		"/C/Projetos/Ionic/PMNL/www/templates/gameInsert.html",
-		"/C/Projetos/Ionic/PMNL/www/js/controllers/gameInsertController.js",
-		"/C/Projetos/Ionic/PMNL/www/templates/ranking-preview.html",
+		"/C/Users/ANDREI/AppData/Roaming/Sublime Text 3/Packages/User/Default (Windows).sublime-keymap",
+		"/C/Projetos/Ionic/PMNL/www/templates/login.html",
+		"/C/Projetos/Ionic/PMNL/www/js/app.js",
+		"/C/Projetos/Ionic/PMNL/www/templates/players.html",
 		"/C/Projetos/Ionic/PMNL/www/js/globals.js",
-		"/C/Projetos/Ionic/PMNL/www/templates/ranking.html",
 		"/C/Projetos/Ionic/PMNL/www/index.html",
 		"/C/Projetos/Ionic/PMNL/www/js/services/player.service.js",
 		"/C/Projetos/Ionic/PMNL/www/js/services/games.service.js",
+		"/C/Projetos/Ionic/PMNL/www/templates/gameInsert.html",
+		"/C/Projetos/Ionic/PMNL/teste.html",
 		"/C/Projetos/Ionic/PMNL/www/templates/game.html",
-		"/C/Projetos/Ionic/PMNL/www/js/app.js",
 		"/C/Projetos/Ionic/PMNL/www/templates/games.html",
-		"/C/Projetos/Ionic/PMNL/www/templates/players.html",
 		"/C/Projetos/Ionic/PMNL/www/templates/menu.html",
 		"/C/Projetos/Ionic/HelloWorld/HelloWorld/package.json",
 		"/C/Projetos/Ionic/HelloWorld/HelloWorld/ionic.project",
@@ -192,11 +189,11 @@
 	],
 	"find":
 	{
-		"height": 34.0
+		"height": 35.0
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 93.0,
 		"where_history":
 		[
 			""
@@ -207,11 +204,15 @@
 		"case_sensitive": false,
 		"find_history":
 		[
-			"playersRanking",
-			"$scope.players",
-			"$scope.playersPreview",
-			"$scope.player",
-			"$scope.playersPreview",
+			"getPlayers",
+			"url",
+			"login",
+			"admin",
+			"//",
+			"mani",
+			"doLogin",
+			"login",
+			"rankin",
 			"\">",
 			"playerDataService",
 			"button-footer",
@@ -237,6 +238,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"",
 			"'"
 		],
 		"reverse": false,
@@ -253,85 +255,90 @@
 			[
 				{
 					"buffer": 0,
-					"file": "www/templates/games.html",
+					"file": "www/index.html",
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 554,
+						"buffer_size": 2440,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								554,
-								554
+								1093,
+								1095
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/AngularJS/AngularJS.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 293.0,
 						"zoom_level": 1.0
 					},
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "www/templates/gameInsert.html",
+					"file": "www/js/globals.js",
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1704,
+						"buffer_size": 268,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								18,
-								20
+								50,
+								50
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/AngularJS/AngularJS.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "www/js/controllers/gameInsertController.js",
+					"file": "www/js/app.js",
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3708,
+						"buffer_size": 3660,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1149,
-								1152
+								2264,
+								2267
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 978.0,
 						"zoom_level": 1.0
 					},
+					"stack_index": 1,
 					"type": "text"
 				}
 			]
@@ -339,7 +346,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 34.0
+		"height": 27.0
 	},
 	"input":
 	{
@@ -368,48 +375,23 @@
 		]
 	},
 	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "PMNL.sublime-project",
 	"replace":
 	{
-		"height": 62.0
+		"height": 50.0
 	},
 	"save_all_on_build": true,
 	"select_file":
 	{
 		"height": 0.0,
+		"last_filter": "",
 		"selected_items":
 		[
-			[
-				"gameinserco",
-				"www/js/controllers/gameInsertController.js"
-			],
-			[
-				"gameins",
-				"www/templates/gameInsert.html"
-			],
-			[
-				"contro",
-				"www/js/controllers.js"
-			],
-			[
-				"games",
-				"www/templates/games.html"
-			],
-			[
-				"gameinser",
-				"www/templates/gameInsert.html"
-			],
-			[
-				"previ",
-				"www/templates/ranking-preview.html"
-			],
-			[
-				"preview",
-				"www/templates/ranking-preview.html"
-			],
-			[
-				"ranki",
-				"www/templates/ranking.html"
-			],
 			[
 				"globa",
 				"www/js/globals.js"
@@ -423,6 +405,10 @@
 				"www/js/controllers.js"
 			],
 			[
+				"gameinser",
+				"www/templates/gameInsert.html"
+			],
+			[
 				"app",
 				"www/js/app.js"
 			],
@@ -433,6 +419,10 @@
 			[
 				"game",
 				"www/templates/game.html"
+			],
+			[
+				"contro",
+				"www/js/controllers.js"
 			],
 			[
 				"edita",
@@ -456,15 +446,32 @@
 	"select_project":
 	{
 		"height": 0.0,
+		"last_filter": "",
 		"selected_items":
 		[
 		],
 		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
 	},
 	"show_minimap": true,
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
 	"side_bar_width": 298.0,
-	"status_bar_visible": true
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
 }

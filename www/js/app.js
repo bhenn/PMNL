@@ -143,6 +143,16 @@ angular.module('starter', ['ionic',
     }
   })
 
+  .state('app.rules', {
+    url: '/rules',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/rules.html',
+        controller: 'RulesCtrl'
+      }
+    }
+  })
+
   authProvider.init({
     domain: 'henn.auth0.com',
     clientID: 'i7TtCI4YgBjiZ7Sahz5I26MA5Vym9EJk',
