@@ -1,14 +1,11 @@
 {
-	"name": "HelloIonic",
+	"name": "PMNL",
 	"private": "true",
 	"devDependencies": {
 		"ionic": "driftyco/ionic-bower#1.2.4",
 		"ionic-platform-web-client": "^0.2.1"
 		},
 		"dependencies": {
-			"ng-cordova-oauth": "^0.2.3",
-			"auth0-angular": "4.*",
-			"a0-angular-storage": ">= 0.0.13",
 			"angular-jwt": ">= 0.0.9"
 		}
 	}
