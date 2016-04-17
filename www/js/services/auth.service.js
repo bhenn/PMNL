@@ -1,50 +1,34 @@
-// angular.module('starter.services', [])
 
-// .service('Auth', Auth);
+(function () {
+    var injectParams = ['$http', '$q','playerDataService'];
 
-// Auth.$inject = ['$http', '$q','$window'];
+    var userService = function ($http, $q,playerDataService) {
+        var factory = {};
 
-// function Auth($http,$q,$window){
+        factory.setUser = function (user_data) {
+                var user = JSON.stringify(user_data);
+                var player = {
+                  name: user_data.name,
+                  facebookid: user_data.userID,
+                  email: user_data.email
+                };
+                playerDataService.inclui(player);
+                window.localStorage.starter_facebook_user = JSON.stringify(user_data);
+        };
 
-//     var factory = {};
+        factory.getUser = function () {
+            return JSON.parse(window.localStorage.starter_facebook_user || '{}');
+        };
 
-//     factory.logged = function(){
-//         if ($window.localStorage.user == undefined || $window.localStorage.user == "undefined" || $window.localStorage.user == null || $window.localStorage.user == "null"){
-//             return false;
-//         }else{
-//             return true;
-//         }
-//     }
+        factory.logout = function(){
+            window.localStorage.starter_facebook_user = "";
+        };
 
-//     factory.getUser = function(){
-//         return JSON.parse($window.localStorage.user);
-//     }
+        return factory;
+    };
 
-//     factory.doLogin = function(credentials){
-//         $window.localStorage.user = JSON.stringify(credentials);
-//     }
+    userService.$inject = injectParams;
 
-//     factory.logout = function(){
-//         $window.localStorage.user = null;
-//     }
-
-//     return factory;
-// }
-
-angular.module('starter', [])
-.service('UserService', function() {
-  // For the purpose of this example I will store user data on ionic local storage but you should save it on a database
-  var setUser = function(user_data) {
-    window.localStorage.starter_facebook_user = JSON.stringify(user_data);
-  };
-
-  var getUser = function(){
-    return JSON.parse(window.localStorage.starter_facebook_user || '{}');
-  };
-
-  return {
-    getUser: getUser,
-    setUser: setUser
-  };
-});
-
+    angular.module('starter')
+        .factory('userService', userService);
+}());

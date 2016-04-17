@@ -1,16 +1,20 @@
 <ion-panel ng-controller="LoginCtrl">
-  <ion-header-bar>
-    <h1 class="title">Seja Bem vindo!</h1>
-  </ion-header-bar>
-  <ion-content>
-    <form>
-      <p ng-show="msgErro != ''" class="erroLogin">{{msgErro}}</p>
-      <label class="item">
-        <button class="button button-block button-positive" ng-click="loginFacebook()">Login</button>
-      </label>
-      <div class="center">
-        <ion-spinner icon="ripple" class="spinner-balanced" ng-show="loading == 'true'" ></ion-spinner>
-      </div>
-    </form>
-  </ion-content>
+<ion-header-bar>
+<h1 class="title">Seja Bem vindo!</h1>
+</ion-header-bar>
+<ion-content>
+<form>
+	<div class="fundo">
+		<p ng-show="msgErro != ''" class="erroLogin">{{msgErro}}</p>
+		<label class="item">
+			<button class="button icon-left button-positive button-block ion-social-facebook" ng-click="loginFacebook()">
+				Login 
+			</button>
+		</label>
+		<div class="center">
+			<ion-spinner icon="ripple" class="spinner-balanced" ng-show="loading == 'true'" ></ion-spinner>
+		</div>
+	</div>
+</form>
+</ion-content>
 </ion-panel>

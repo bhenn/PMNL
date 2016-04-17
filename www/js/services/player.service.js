@@ -9,16 +9,13 @@
             return $http.get(urlBase);
         };
 
-        // factory.getMunicipio = function (codMunicipio) {
-        //     return $http.get(urlBase + '/' + codMunicipio);
-        // };
 
-        // factory.altera = function (municipio) {
-        //     return $http.put(urlBase + '/' + municipio.munId, municipio)
-        //         .then(function (results) {
-        //             return results.data;
-        //         });
-        // };
+        factory.inclui = function(player){
+            return $http.post(urlBase, player)
+                .then(function(results){
+                    return results.data;
+                });
+        }
 
         return factory;
     };

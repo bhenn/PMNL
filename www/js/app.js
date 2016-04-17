@@ -20,14 +20,16 @@ angular.module('starter', ['ionic',
       StatusBar.styleDefault();
     }
 
+
+    
   });
 
   
 })
 
 .config(function($stateProvider, $urlRouterProvider) {
-  $stateProvider
 
+  $stateProvider
 
   .state('login', {
     url: '/login',
