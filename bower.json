@@ -1,11 +1,12 @@
 {
-	"name": "PMNL",
-	"private": "true",
-	"devDependencies": {
-		"ionic": "driftyco/ionic-bower#1.2.4",
-		"ionic-platform-web-client": "^0.2.1"
-		},
-		"dependencies": {
-			"angular-jwt": ">= 0.0.9"
-		}
-	}
+  "name": "PMNL",
+  "private": "true",
+  "devDependencies": {
+    "ionic": "driftyco/ionic-bower#1.2.4",
+    "ionic-platform-web-client": "^0.2.1",
+    "platform.js": "platform#^1.3.1"
+  },
+  "dependencies": {
+    "angular-jwt": ">= 0.0.9"
+  }
+}

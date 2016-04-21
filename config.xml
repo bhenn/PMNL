@@ -72,5 +72,8 @@
         <splash height="960" src="resources/ios/splash/Default@2x~iphone.png" width="640" />
         <splash height="480" src="resources/ios/splash/Default~iphone.png" width="320" />
     </platform>
-    <plugin name="cordova-plugin-whitelist" spec="~1.2.1" />
+    <plugin name="cordova-plugin-facebook4" spec="~1.7.0">
+        <variable name="APP_ID" value="1644507495810496" />
+        <variable name="APP_NAME" value="“pmnl“" />
+    </plugin>
 </widget>
