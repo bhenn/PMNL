@@ -95,8 +95,3 @@
     width: 100%; /* width 100% */
     border-radius: 50%; /* read above */
 }
-
-.fundo {
-  background-image: url(../img/poker.jpg);
-  background-color: red;
-}

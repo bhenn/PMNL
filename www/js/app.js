@@ -113,6 +113,17 @@ angular.module('starter', ['ionic',
     }
   })
 
+  .state('app.rules', {
+    url: '/rules',  
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/rules.html',
+        controller: 'RulesCtrl'
+      }
+    }
+  })
+
+
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/login');
 });
