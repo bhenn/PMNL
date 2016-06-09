@@ -2,14 +2,14 @@ angular.module('starter.controllers')
 
 .controller('GameInsertCtrl',GameInsertCtrl);
 
-GameInsertCtrl.$inject = ['$scope', 'gamesDataService','$q','$ionicLoading','playerDataService','$cordovaTouchID','$ionicModal','$filter','$ionicPopup'];
+GameInsertCtrl.$inject = ['$scope', 'gamesDataService','$q','$ionicLoading','playerDataService','$cordovaTouchID','$ionicModal','$filter','$ionicPopup','userService'];
 
-function GameInsertCtrl($scope,gamesDataService,$q,$ionicLoading,playerDataService,$cordovaTouchID,$ionicModal,$filter,$ionicPopup){
+function GameInsertCtrl($scope,gamesDataService,$q,$ionicLoading,playerDataService,$cordovaTouchID,$ionicModal,$filter,$ionicPopup,userService){
 
-  $scope.shouldShowReorder = true;
+  $scope.shouldShowReorder = false;
   $scope.listCanSwipe = true;
-  $scope.shouldShowDelete = true;
   $scope.game = {descricao: "", date: ""};
+  $scope.canInsert = userService.getUser('facebook').canInsert;
 
   var playerRankingOriginal = [];
 
@@ -50,92 +50,102 @@ function GameInsertCtrl($scope,gamesDataService,$q,$ionicLoading,playerDataServi
     }
   };
 
-  $scope.moveItem = function(player, fromIndex, toIndex) {
-     $scope.players.splice(fromIndex, 1);
-     $scope.players.splice(toIndex, 0, player);
+  $scope.eliminate = function(player){
+    player.eliminado = !player.eliminado;
   };
 
-  $scope.insertGame = function(){
-    $scope.show();
-    var deferred = $q.defer();
-    var gameResult = [];
+  $scope.canReorder = function(){
+    $scope.shouldShowReorder = !$scope.shouldShowReorder;
 
-    for (var i = 0; i < $scope.players.length; i++) {
-     gameResult.push({playerid: $scope.players[i].id, order: i+1});
-    };
-
-    var game = {
-      description: $scope.game.descricao,
-      date: $scope.game.date,
-    gamesresults: gameResult
-    };
-
-    gamesDataService.insert(game)
-    .then(function (result) {
-
-      $ionicPopup.alert({
-        title: 'OK',
-        template: 'Rodada Incluída'
-      }).then(function(){
-        $scope.restart();
-        $scope.doRefresh();
-        $scope.closeGameInsert();
-      });
-
-    })
-    .catch(function(data){
-      $ionicPopup.alert({
-        title: 'Erro',
-        template: data.data.message
-      })
-      .then(function(){
-        $scope.restart();
-      });
-    })
-    .finally(function(){
-      $scope.hide();  
-    });
-
-    return deferred.promise; 
   }
 
-  $scope.restart = function(){
-    $scope.game.descricao ="";
-    $scope.game.date ="";
-    init();
-  }
 
-  function getPlayers() {
-    var deferred = $q.defer();
+  $scope.moveItem = function(player, fromIndex, toIndex) {
+   $scope.players.splice(fromIndex, 1);
+   $scope.players.splice(toIndex, 0, player);
+  };
 
-    playerDataService.lista()
-    .then(function (result) {
-        $scope.players = result.data;
-        playerRankingOriginal = angular.copy(result.data);
-        $scope.hide();
-    });
+ $scope.insertGame = function(){
+  $scope.show();
+  var deferred = $q.defer();
+  var gameResult = [];
 
-    return deferred.promise;
-  }
+  for (var i = 0; i < $scope.players.length; i++) {
+   gameResult.push({playerid: $scope.players[i].id, order: i+1});
+ };
 
-  function init() {
-    $scope.show();
-    getPlayers();
-  }
+ var game = {
+  description: $scope.game.descricao,
+  date: $scope.game.date,
+  gamesresults: gameResult
+};
 
-  function generatePreview(){
-    $scope.playersPreview = angular.copy(playerRankingOriginal);
+gamesDataService.insert(game)
+.then(function (result) {
 
-    for (var i = 0; i < $scope.players.length; i++) {
-      var playerFound = $filter('filter')($scope.playersPreview ,{id : $scope.players[i].id});
-      playerFound[0].points += getPoints($scope.players.length, i);
-    };
-  }
+  $ionicPopup.alert({
+    title: 'OK',
+    template: 'Rodada Incluída'
+  }).then(function(){
+    $scope.restart();
+    $scope.doRefresh();
+    $scope.closeGameInsert();
+  });
 
-  function getPoints(players,position){
-    return pontuacao[players - 5][position];
-  }
+})
+.catch(function(data){
+  $ionicPopup.alert({
+    title: 'Erro',
+    template: data.data.message
+  })
+  .then(function(){
+    $scope.restart();
+  });
+})
+.finally(function(){
+  $scope.hide();  
+});
 
+return deferred.promise; 
+}
+
+$scope.restart = function(){
+  $scope.game.descricao ="";
+  $scope.game.date ="";
   init();
-  
+}
+
+function getPlayers() {
+  var deferred = $q.defer();
+
+  playerDataService.lista()
+  .then(function (result) {
+    $scope.players = result.data;
+    playerRankingOriginal = angular.copy(result.data);
+    $scope.hide();
+  });
+
+  return deferred.promise;
+}
+
+function init() {
+  $scope.show();
+  getPlayers();
+}
+
+function generatePreview(){
+  $scope.playersPreview = angular.copy(playerRankingOriginal);
+
+  for (var i = 0; i < $scope.players.length; i++) {
+    var playerFound = $filter('filter')($scope.playersPreview ,{id : $scope.players[i].id});
+    playerFound[0].points += getPoints($scope.players.length, i);
+  };
+}
+
+function getPoints(players,position){
+  return pontuacao[players - 5][position];
+}
+
+init();
+
 }

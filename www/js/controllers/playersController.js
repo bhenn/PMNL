@@ -38,6 +38,7 @@ function PlayersCtrl($scope,playerDataService,$q,$ionicLoading){
         $scope.hide();
     }, function(err){
         $scope.erro = "Erro -> " + err.statusText;
+        console.log(err);
         $scope.hide();
     });
 

@@ -9,44 +9,57 @@ function LoginCtrl($scope,$timeout,$location,$state,userService,$ionicLoading,$q
 	$scope.msgErro = "";
 	$scope.loading = 'false';
 
+/*
   var usuarioLogado = userService.getUser('facebook');
   if (!usuarioLogado.userID) {
-    
   }else{
     $state.go('app.ranking');
   }
+*/
 
-	var fbLoginSuccess = function(response) {
-		if (!response.authResponse){
-			fbLoginError("Cannot find the authResponse");
-			return;
-		}
+$state.go('app.ranking');
+  var fbLoginSuccess = function(response) {
+    if (!response.authResponse){
+     fbLoginError("Cannot find the authResponse");
+     return;
+   }
 
-		var authResponse = response.authResponse;
+   var authResponse = response.authResponse;
 
-		getFacebookProfileInfo(authResponse)
-		.then(function(profileInfo) {
-      // For the purpose of this example I will store user data on local storage
-      userService.setUser({
-      	authResponse: authResponse,
-      	userID: profileInfo.id,
-      	name: profileInfo.name,
-      	email: profileInfo.email,
-      	picture : "http://graph.facebook.com/" + authResponse.userID + "/picture?type=large"
-      });
-      $ionicLoading.hide();
-      $state.go('app.ranking');
+   getFacebookProfileInfo(authResponse)
+   .then(function(profileInfo) {
+    var usuario = {
+      authResponse: authResponse,
+      userID: profileInfo.id,
+      name: profileInfo.name,
+      email: profileInfo.email,
+      picture : "http://graph.facebook.com/" + authResponse.userID + "/picture?type=large"
+    };
+
+    userService.setUser(usuario)
+    .then(function (result){
+      if (result == 'OK'){
+        $state.go('app.ranking');
+      }else{
+        $scope.msgErro = "Usuário não cadastrado !!!"
+        facebookConnectPlugin.logout();
+      }
+
+          $ionicLoading.hide();
+    });
   }, function(fail){
   	console.log('profile info fail', fail);
   	$scope.msgErro = fail;
   });
-	};
+ };
 
   // This is the fail callback from the login method
   var fbLoginError = function(error){
   	console.log('fbLoginError', error);
-  	$scope.msgErro = error;
-  	$ionicLoading.hide();
+    if (error.errorCode != '4201'){
+      $scope.msgErro = error;  
+    }
+    $ionicLoading.hide();
   };
 
   // This method is to get the user profile info from the facebook api
@@ -55,25 +68,22 @@ function LoginCtrl($scope,$timeout,$location,$state,userService,$ionicLoading,$q
 
   	facebookConnectPlugin.api('/me?fields=email,name&access_token=' + authResponse.accessToken, null,
   		function (response) {
-  			console.log(response);
   			info.resolve(response);
   		},
   		function (response) {
-  			console.log(response);
   			info.reject(response);
   		}
   		);
   	return info.promise;
   };
 
-  //This method is executed when the user press the "Login with facebook" button
-  $scope.loginFacebook = function() {
-  	facebookConnectPlugin.getLoginStatus(function(success){
-  		if(success.status === 'connected'){
-        // The user is logged in and has authenticated your app, and response.authResponse supplies
-        // the user's ID, a valid access token, a signed request, and the time the access token
-        // and signed request each expire
-        console.log('getLoginStatus', success.status);
+
+    //This method is executed when the user press the "Login with facebook" button
+    $scope.loginFacebook = function() {
+      $scope.msgErro = '';
+
+      facebookConnectPlugin.getLoginStatus(function(success){
+        if(success.status === 'connected'){
 
     		// Check if we have our user saved
     		var user = userService.getUser('facebook');
@@ -82,16 +92,25 @@ function LoginCtrl($scope,$timeout,$location,$state,userService,$ionicLoading,$q
     			getFacebookProfileInfo(success.authResponse)
     			.then(function(profileInfo) {
 						// For the purpose of this example I will store user data on local storage
-						userService.setUser({
-							authResponse: success.authResponse,
-							userID: profileInfo.id,
-							name: profileInfo.name,
-							email: profileInfo.email,
-							picture : "http://graph.facebook.com/" + success.authResponse.userID + "/picture?type=large"
-						});
 
-						$state.go('app.ranking');
-					}, function(fail){
+            var usuario = {
+              authResponse: success.authResponse,
+              userID: profileInfo.id,
+              name: profileInfo.name,
+              email: profileInfo.email,
+              picture : "http://graph.facebook.com/" + success.authResponse.userID + "/picture?type=large"
+            };
+
+            userService.setUser(usuario)
+            .then(function (result){
+              if (result == 'OK'){
+                $state.go('app.ranking');
+              }else{
+               facebookConnectPlugin.logout();
+               $scope.msgErro = "Usuário não cadastrado !!";
+             }
+           });
+          }, function(fail){
 						// Fail get profile info
 						console.log('profile info fail', fail);
 					});
@@ -99,22 +118,14 @@ function LoginCtrl($scope,$timeout,$location,$state,userService,$ionicLoading,$q
     			$state.go('app.ranking');
     		}
     	} else {
-        // If (success.status === 'not_authorized') the user is logged in to Facebook,
-				// but has not authenticated your app
-        // Else the person is not logged into Facebook,
-				// so we're not sure if they are logged into this app or not.
 
-				console.log('getLoginStatus', success.status);
+        $ionicLoading.show({
+         template: 'Logging in...'
+       });
 
-				$ionicLoading.show({
-					template: 'Logging in...'
-				});
+        facebookConnectPlugin.login(['email', 'public_profile'], fbLoginSuccess, fbLoginError);
+      }
+    });
+    };
 
-				// Ask the permissions you need. You can learn more about
-				// FB permissions here: https://developers.facebook.com/docs/facebook-login/permissions/v2.4
-				facebookConnectPlugin.login(['email', 'public_profile'], fbLoginSuccess, fbLoginError);
-			}
-		});
-  };
-
-}
+  }

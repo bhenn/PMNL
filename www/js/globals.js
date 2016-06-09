@@ -10,3 +10,5 @@ var pontuacao = [
 /*10*/[23,16,11,8,6,5,4,3,2,1]
 ]
 
+var userAdmin = false;
+
