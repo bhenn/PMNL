@@ -9,15 +9,14 @@ function LoginCtrl($scope,$timeout,$location,$state,userService,$ionicLoading,$q
 	$scope.msgErro = "";
 	$scope.loading = 'false';
 
-/*
+
   var usuarioLogado = userService.getUser('facebook');
   if (!usuarioLogado.userID) {
   }else{
     $state.go('app.ranking');
   }
-*/
 
-$state.go('app.ranking');
+
   var fbLoginSuccess = function(response) {
     if (!response.authResponse){
      fbLoginError("Cannot find the authResponse");
