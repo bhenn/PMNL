@@ -19,7 +19,7 @@
       <ion-list show-reorder="shouldShowReorder" can-swipe="listCanSwipe" on-double-tap="canReorder()">
         <ion-item ng-repeat="player in players"  >
         <h2 ng-class="{eliminado: player.eliminado}" >{{$index + 1}} - {{player.name}}</h2>
-          <ion-option-button class="button-dark" ng-click="eliminate(player)"> Eliminado </ion-option-button>
+          <ion-option-button class="button-dark" ng-click="eliminate(player,$index)"> Eliminado </ion-option-button>
           <ion-option-button class="button-assertive" ng-click="removeItem($index)"> Excluir </ion-option-button>
           <ion-reorder-button class="ion-navicon" on-reorder="moveItem(player, $fromIndex, $toIndex)" />
         </ion-item>

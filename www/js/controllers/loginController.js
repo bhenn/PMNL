@@ -10,11 +10,12 @@ function LoginCtrl($scope,$timeout,$location,$state,userService,$ionicLoading,$q
 	$scope.loading = 'false';
 
 
-  var usuarioLogado = userService.getUser('facebook');
-  if (!usuarioLogado.userID) {
-  }else{
-    $state.go('app.ranking');
-  }
+  // var usuarioLogado = userService.getUser('facebook');
+  // if (!usuarioLogado.userID) {
+  // }else{
+  //   $state.go('app.ranking');
+  // }
+  $state.go('app.ranking');
 
 
   var fbLoginSuccess = function(response) {

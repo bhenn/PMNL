@@ -1,4 +1,5 @@
-var url = "http://pmnlapi.azurewebsites.net/api";
+//var url = "http://pmnlapi.azurewebsites.net/api";
+var url = "http://localhost:5000/api";
 //var url = "http://localhost:64789/api";
 
 var pontuacao = [

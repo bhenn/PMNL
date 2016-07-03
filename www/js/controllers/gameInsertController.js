@@ -2,14 +2,15 @@ angular.module('starter.controllers')
 
 .controller('GameInsertCtrl',GameInsertCtrl);
 
-GameInsertCtrl.$inject = ['$scope', 'gamesDataService','$q','$ionicLoading','playerDataService','$cordovaTouchID','$ionicModal','$filter','$ionicPopup','userService'];
+GameInsertCtrl.$inject = ['$scope', 'gamesDataService','$q','$ionicLoading','playerDataService','$cordovaTouchID','$ionicModal','$filter','$ionicPopup','userService','$ionicListDelegate'];
 
-function GameInsertCtrl($scope,gamesDataService,$q,$ionicLoading,playerDataService,$cordovaTouchID,$ionicModal,$filter,$ionicPopup,userService){
+function GameInsertCtrl($scope,gamesDataService,$q,$ionicLoading,playerDataService,$cordovaTouchID,$ionicModal,$filter,$ionicPopup,userService,$ionicListDelegate){
 
   $scope.shouldShowReorder = false;
   $scope.listCanSwipe = true;
   $scope.game = {descricao: "", date: ""};
-  $scope.canInsert = userService.getUser('facebook').canInsert;
+  // $scope.canInsert = userService.getUser('facebook').canInsert;
+  $scope.canInsert = true;
 
   var playerRankingOriginal = [];
 
@@ -47,11 +48,38 @@ function GameInsertCtrl($scope,gamesDataService,$q,$ionicLoading,playerDataServi
       });
     }else{
       $scope.players.splice(index, 1)  
+      $ionicListDelegate.closeOptionButtons();
     }
   };
 
-  $scope.eliminate = function(player){
+  $scope.eliminate = function(player,fromIndex){
+    var lastEliminated = null;
+    var indexTo = 0;
+
+    if (player.eliminado)
+    {
+      indexTo = 0;
+    }else{
+      for (var i = $scope.players.length - 1; i >= 0; i--) {
+        if ($scope.players[i].eliminado == true){
+          lastEliminated = i;
+        }
+      }
+
+      if (lastEliminated != null){
+        indexTo = lastEliminated - 1;
+      }else{
+        indexTo = $scope.players.length - 1;
+      }  
+    }
+    
+    $ionicListDelegate.closeOptionButtons();
+
+    $scope.moveItem(player,fromIndex,indexTo);
     player.eliminado = !player.eliminado;
+
+
+
   };
 
   $scope.canReorder = function(){
@@ -63,7 +91,7 @@ function GameInsertCtrl($scope,gamesDataService,$q,$ionicLoading,playerDataServi
   $scope.moveItem = function(player, fromIndex, toIndex) {
    $scope.players.splice(fromIndex, 1);
    $scope.players.splice(toIndex, 0, player);
-  };
+ };
 
  $scope.insertGame = function(){
   $scope.show();
@@ -71,15 +99,16 @@ function GameInsertCtrl($scope,gamesDataService,$q,$ionicLoading,playerDataServi
   var gameResult = [];
 
   for (var i = 0; i < $scope.players.length; i++) {
-   gameResult.push({playerid: $scope.players[i].id, order: i+1});
+   gameResult.push({playerId: $scope.players[i].id, order: i+1});
  };
 
  var game = {
   description: $scope.game.descricao,
   date: $scope.game.date,
-  gamesresults: gameResult
+  gamesResults: gameResult
 };
 
+console.log(game);
 gamesDataService.insert(game)
 .then(function (result) {
 
@@ -94,9 +123,12 @@ gamesDataService.insert(game)
 
 })
 .catch(function(data){
+  console.log("Errorrrr -> ");
+  console.log(data);
+
   $ionicPopup.alert({
     title: 'Erro',
-    template: data.data.message
+    template: data.data.msg
   })
   .then(function(){
     $scope.restart();

@@ -18,7 +18,7 @@
 		<a class="item item-text-wrap" href="#/games/{{game.id}}">
 			<h2> {{game.description}} </h2>
 			<h3> {{game.date | date: "dd/MM/yyyy"}} </h3>
-			<p><i class="icon ion-ribbon-a"></i>  {{game.winnerPlayerName}} </p>
+			<p><i class="icon ion-ribbon-a"></i>  {{game.gamesResults[0].name}} </p>
 		</a>
 	</div>
 </div>
