@@ -10,7 +10,7 @@ function GameInsertCtrl($scope,gamesDataService,$q,$ionicLoading,playerDataServi
   $scope.listCanSwipe = true;
   $scope.game = {descricao: "", date: ""};
   // $scope.canInsert = userService.getUser('facebook').canInsert;
-  $scope.canInsert = true;
+  $scope.canInsert = false;
 
   var playerRankingOriginal = [];
 
@@ -84,13 +84,14 @@ function GameInsertCtrl($scope,gamesDataService,$q,$ionicLoading,playerDataServi
 
   $scope.canReorder = function(){
     $scope.shouldShowReorder = !$scope.shouldShowReorder;
-
   }
 
 
   $scope.moveItem = function(player, fromIndex, toIndex) {
    $scope.players.splice(fromIndex, 1);
    $scope.players.splice(toIndex, 0, player);
+
+   generatePreview();
  };
 
  $scope.insertGame = function(){
@@ -154,6 +155,7 @@ function getPlayers() {
   .then(function (result) {
     $scope.players = result.data;
     playerRankingOriginal = angular.copy(result.data);
+    generatePreview();
     $scope.hide();
   });
 
@@ -166,11 +168,9 @@ function init() {
 }
 
 function generatePreview(){
-  $scope.playersPreview = angular.copy(playerRankingOriginal);
-
   for (var i = 0; i < $scope.players.length; i++) {
-    var playerFound = $filter('filter')($scope.playersPreview ,{id : $scope.players[i].id});
-    playerFound[0].points += getPoints($scope.players.length, i);
+    $scope.players[i].pointsPreview = getPoints($scope.players.length, i);
+    $scope.players[i].pointsFinal = $scope.players[i].pointsPreview + $scope.players[i].points;
   };
 }
 

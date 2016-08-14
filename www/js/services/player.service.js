@@ -10,20 +10,6 @@
         };
 
 
-        factory.inclui = function(player){
-            return $http.post(urlBase, player).then(onSuccess, onError);
-            function onSuccess(data){
-                return data;
-            }
-
-            function onError(data){
-                if (data.status == 404){
-                    return "Usuário não cadastrado !"
-                }
-            }
-
-        }
-
         return factory;
     };
 

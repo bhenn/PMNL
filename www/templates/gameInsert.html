@@ -18,7 +18,8 @@
       <div class="col"></div>
       <ion-list show-reorder="shouldShowReorder" can-swipe="listCanSwipe" on-double-tap="canReorder()">
         <ion-item ng-repeat="player in players"  >
-        <h2 ng-class="{eliminado: player.eliminado}" >{{$index + 1}} - {{player.name}}</h2>
+          <div class="player" ng-class="{eliminado: player.eliminado}" >{{$index + 1}} - {{player.name}}</div>
+          <div class="points">+{{player.pointsPreview}} = {{player.pointsFinal}}</div>
           <ion-option-button class="button-dark" ng-click="eliminate(player,$index)"> Eliminado </ion-option-button>
           <ion-option-button class="button-assertive" ng-click="removeItem($index)"> Excluir </ion-option-button>
           <ion-reorder-button class="ion-navicon" on-reorder="moveItem(player, $fromIndex, $toIndex)" />
@@ -31,7 +32,7 @@
     <button class="button button-block button-positive" ng-click="restart()">
       Recomeçar
     </button>
-    <button class="button button-block button-positive" ng-click="openPreview()" >
+    <button class="button button-block button-positive" ng-click="openPreview()">
       Preview
     </button>
   </ion-content>

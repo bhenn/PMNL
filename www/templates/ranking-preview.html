@@ -1,3 +1,4 @@
+
 <ion-modal-view view-title="Ranking">
   <ion-header-bar>
     <h1 class="title">Preview</h1>
@@ -7,12 +8,11 @@
   </ion-header-bar>
   <ion-content>
 	<ion-list>
-      <ion-item ng-repeat="player in playersPreview | orderBy: '-points'">
+      <ion-item ng-repeat="player in players | orderBy: '-pointsFinal'">
       <div class="colocation"> {{$index + 1}}</div>
        <div class="player"> {{player.name}}</div>
-      <div class="points">{{player.points}}</div>
+      <div class="points">{{player.pointsFinal}}</div>
       </ion-item>
     </ion-list>
   </ion-content>
 </ion-modal-view>
-
